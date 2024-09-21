@@ -1,0 +1,80 @@
+baseURL: "https://ajaydhungel.me/"
+title: Ajay Dhungel
+paginate: 6
+theme: charlolamode
+
+
+
+menu:
+    main:
+        - name: About
+          url: about/
+          weight: 30
+        - name: Blog
+          url: blog/
+          weight: 20
+        # - name: Categories
+        #   url: categories/
+        #   weight: 10
+        - name: Notes
+          url: notes/
+          weight: 10
+        
+
+
+params:
+    author: Ajay Dhungel
+    description: Hi, I am Ajay Dhungel. I am a Cloud & DevOps enthusiast.
+    defaultTheme: auto
+    #disableThemeToggle: true
+    ShowShareButtons: true
+    ShowReadingTime: true
+    displayFullLangName: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    ShowToc: true
+
+    profileMode:
+        enabled: true
+        title: Ajay Dhungel 👋
+        imageUrl: "/images/profile.jpg"
+        imageTitle: Ajay 
+        imageWidth: 200
+        imageHeight: 200
+        buttons:
+            - name: Don't click me
+              url: https://www.youtube.com/shorts/p6SAxNbA8n4
+            
+    mainSections:
+      - articles
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/ajaydhungel7"
+        - name: twitter
+          url: "https://x.com/ajaydgl"
+        - name: linkedin
+          url: "https://www.linkedin.com/in/ajaydhungel/"
+        - name: buymeacoffee
+          url: "https://buymeacoffee.com/ajaydhungel7"
+        - name: instagram
+          url: "https://www.instagram.com/ajaya_023/"
+
+
+    # change favicon in images folder (icon for web tab)
+    assets:
+          favicon: "/images/profile.jpeg"
+          favicon16x16: "/images/favicon-16x16.png"
+          favicon32x32: "/images/favicon-32x32.png"
+          apple_touch_icon: "/images/apple-touch-icon.png"
+          safari_pinned_tab: "/images/apple-touch-icon.png"
+
+
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+enableEmoji: true
+pygmentsUseClasses: true
+
+minify:
+    disableXML: true
