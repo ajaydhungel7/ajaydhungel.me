@@ -2,24 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ajay Dhungel</title>
-    <link>http://localhost:1313/</link>
+    <link>https://ajaydhungel.me/</link>
     <description>Recent content on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ajaydhungel.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://ajaydhungel.me/notes/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ajaydhungel.me/notes/notes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog 1</title>
+      <link>https://ajaydhungel.me/blog/blog-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ajaydhungel.me/blog/blog-list/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Math Braintrainer</title>
-      <link>http://localhost:1313/projects/math-brain-trainer/</link>
+      <link>https://ajaydhungel.me/projects/math-brain-trainer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/math-brain-trainer/</guid>
+      <guid>https://ajaydhungel.me/projects/math-brain-trainer/</guid>
       <description></description>
     </item>
     <item>
       <title>Surprise Surprise</title>
-      <link>http://localhost:1313/articles/article/</link>
+      <link>https://ajaydhungel.me/articles/article/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/article/</guid>
-      <description>&lt;h3 id=&#34;thank-you-for-your-support&#34;&gt;Thank you for your support!&lt;/h3&gt;&#xA;&lt;p&gt;Hello. If you like this template, I&amp;rsquo;d be happy to get a &lt;a href=&#34;https://ko-fi.com/heycharlola&#34;&gt;coffee donation&lt;/a&gt; :)&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/images/thankyou.png&#34;&gt;&#xA;&lt;/figure&gt;</description>
+      <guid>https://ajaydhungel.me/articles/article/</guid>
+      <description>&lt;h3 id=&#34;thank-you-for-your-support&#34;&gt;Thank you for your support!&lt;/h3&gt;&#xA;&lt;p&gt;Hello. If you like this template, I&amp;rsquo;d be happy to get a &lt;a href=&#34;https://ko-fi.com/heycharlola&#34;&gt;coffee donation&lt;/a&gt; :)&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;https://ajaydhungel.me/images/thankyou.png&#34;&gt;&#xA;&lt;/figure&gt;</description>
     </item>
   </channel>
 </rss>

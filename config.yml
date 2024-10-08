@@ -24,7 +24,7 @@ menu:
 
 params:
     author: Ajay Dhungel
-    description: Hi, I am Ajay Dhungel. I am a Cloud & DevOps enthusiast.
+    profile-description: Hi, I am Ajay Dhungel. I am a Cloud & DevOps enthusiast.
     defaultTheme: auto
     #disableThemeToggle: true
     ShowShareButtons: true
@@ -36,14 +36,14 @@ params:
 
     profileMode:
         enabled: true
-        title: Ajay Dhungel 👋
+        title: Ajay Dhungel 
         imageUrl: "/images/profile.jpg"
         imageTitle: Ajay 
         imageWidth: 200
         imageHeight: 200
         buttons:
             - name: Don't click me
-              url: https://www.youtube.com/shorts/p6SAxNbA8n4
+              url: https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley
             
     mainSections:
       - articles
