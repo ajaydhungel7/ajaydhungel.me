@@ -1,1 +1,13 @@
-<img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
+<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}"
+  {{ with .Title }}
+    {{ $dimensions := split . "x" }}
+    {{ if ge (len $dimensions) 2 }}
+      width="{{ index $dimensions 0 }}" height="{{ index $dimensions 1 }}"
+    {{ end }}
+  {{ end }}
+  {{ with $image }}
+    {{ if not $.Title }}
+      width="{{ .Width }}" height="{{ .Height }}"
+    {{ end }}
+  {{ end }}>
