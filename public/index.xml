@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ajay Dhungel</title>
-    <link>http://localhost:57824/</link>
+    <link>http://localhost:58305/</link>
     <description>Recent content on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:57824/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:58305/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:57824/cv/</link>
+      <link>http://localhost:58305/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57824/cv/</guid>
+      <guid>http://localhost:58305/cv/</guid>
       <description>&lt;h1 id=&#34;ajay-dhungel&#34;&gt;Ajay Dhungel&lt;/h1&gt;&#xA;&lt;p&gt;Toronto, ON&lt;br&gt;&#xA;(437) 870-6261 | &lt;a href=&#34;mailto:dhungelajay@gmail.com&#34;&gt;dhungelajay@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;Results-oriented DevOps Engineer specializing in AWS cloud solutions with 3+ years of experience architecting and implementing scalable, reliable infrastructure using Infrastructure as Code (IaC) and Kubernetes. Proven ability to automate processes, streamline deployments, and troubleshoot complex issues. Passionate advocate for continuous learning and delivering exceptional results.&lt;/p&gt;&#xA;&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cloud Platforms&lt;/strong&gt;: AWS (EC2, S3, RDS, VPC, Lambda, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Infrastructure as Code&lt;/strong&gt;: Terraform&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Configuration Management&lt;/strong&gt;: Ansible, Chef&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CI/CD&lt;/strong&gt;: Jenkins, GitLab CI&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Scripting&lt;/strong&gt;: Bash, Python&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Containers&lt;/strong&gt;: Docker, Kubernetes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Monitoring&lt;/strong&gt;: CloudWatch, Prometheus&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Soft Skills&lt;/strong&gt;: Problem-solving, communication, teamwork&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;professional-experience&#34;&gt;Professional Experience&lt;/h2&gt;&#xA;&lt;h3 id=&#34;associate-cloud-engineer&#34;&gt;Associate Cloud Engineer&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Genese Solution Pvt. Ltd.&lt;/strong&gt; | Lalitpur, Nepal&lt;br&gt;&#xA;&lt;em&gt;March 2022 - Dec 2023&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Blog</title>
-      <link>http://localhost:57824/blog/</link>
+      <link>http://localhost:58305/blog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57824/blog/</guid>
+      <guid>http://localhost:58305/blog/</guid>
       <description>&lt;h2 id=&#34;welcome-to-my-blog&#34;&gt;Welcome to My Blog&lt;/h2&gt;&#xA;&lt;p&gt;This is where I&amp;rsquo;ll share my thoughts and experiences.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dev.to/aws-builders/leveraging-aws-codepipeline-pipeline-and-serverless-framework-to-deploy-a-flask-api-3jha&#34;&gt;Leveraging AWS CodePipeline and Serverless Framework to Deploy a Flask API&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/streamlining-deployment-leveraging-github-actions-to-deploy-a-python-application-on-aws-ecs-187eb524a08d&#34;&gt;Streamlining Deployment: Leveraging GitHub Actions to Deploy a Python Application on AWS ECS&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://community.aws/content/2b16dziFM3CwBTJbZNwOvdY5VNp/trying-aws-cloudformation-git-sync-for-git-management-of-stacks&#34;&gt;Trying AWS CloudFormation Git Sync for Git Management of Stacks&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/amazon-ecr-how-to-avoid-pull-rate-limits-on-base-docker-images-from-docker-hub-47b35d3f9c3d&#34;&gt;Amazon ECR: How to Avoid Pull Rate Limits on Base Docker Images from Docker Hub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://medium.com/@adhungel2/aws-step-functions-creating-a-busy-waiting-flow-to-wait-for-successful-lambda-executions-c0f65d43ef33&#34;&gt;AWS Step Functions: Creating a Busy-Waiting Flow to Wait for Successful Lambda Executions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/using-amazon-eventbridge-with-codebuild-project-to-sync-cross-account-s3-buckets-43330e6af260&#34;&gt;Using Amazon EventBridge with CodeBuild Project to Sync Cross-Account S3 Buckets&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/configuring-aws-ci-cd-codepipeline-with-terraform-3046f017dac5&#34;&gt;Configuring AWS CI/CD CodePipeline with Terraform&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>

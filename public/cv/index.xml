@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cvs on Ajay Dhungel</title>
-    <link>http://localhost:57824/cv/</link>
+    <link>http://localhost:58305/cv/</link>
     <description>Recent content in Cvs on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:57824/cv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:58305/cv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:57824/cv/</link>
+      <link>http://localhost:58305/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57824/cv/</guid>
+      <guid>http://localhost:58305/cv/</guid>
       <description>&lt;h1 id=&#34;ajay-dhungel&#34;&gt;Ajay Dhungel&lt;/h1&gt;&#xA;&lt;p&gt;Toronto, ON&lt;br&gt;&#xA;(437) 870-6261 | &lt;a href=&#34;mailto:dhungelajay@gmail.com&#34;&gt;dhungelajay@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;Results-oriented DevOps Engineer specializing in AWS cloud solutions with 3+ years of experience architecting and implementing scalable, reliable infrastructure using Infrastructure as Code (IaC) and Kubernetes. Proven ability to automate processes, streamline deployments, and troubleshoot complex issues. Passionate advocate for continuous learning and delivering exceptional results.&lt;/p&gt;&#xA;&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cloud Platforms&lt;/strong&gt;: AWS (EC2, S3, RDS, VPC, Lambda, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Infrastructure as Code&lt;/strong&gt;: Terraform&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Configuration Management&lt;/strong&gt;: Ansible, Chef&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CI/CD&lt;/strong&gt;: Jenkins, GitLab CI&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Scripting&lt;/strong&gt;: Bash, Python&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Containers&lt;/strong&gt;: Docker, Kubernetes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Monitoring&lt;/strong&gt;: CloudWatch, Prometheus&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Soft Skills&lt;/strong&gt;: Problem-solving, communication, teamwork&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;professional-experience&#34;&gt;Professional Experience&lt;/h2&gt;&#xA;&lt;h3 id=&#34;associate-cloud-engineer&#34;&gt;Associate Cloud Engineer&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Genese Solution Pvt. Ltd.&lt;/strong&gt; | Lalitpur, Nepal&lt;br&gt;&#xA;&lt;em&gt;March 2022 - Dec 2023&lt;/em&gt;&lt;/p&gt;</description>
     </item>
   </channel>
