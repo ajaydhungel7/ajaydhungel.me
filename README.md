@@ -1,6 +1,6 @@
 # Ajay's Hugo Profile
 
-Welcome to my personal profile site built with Hugo using the [CharlolaMode theme](https://github.com/charlola/hugo-theme-charlolamode). This repository contains the necessary files to set up and customize your profile.
+Welcome to my personal profile site built with Hugo using the [CharlolaMode theme](https://github.com/charlola/hugo-theme-charlolamode). This repository contains the necessary files to set up and customize your profile. Find this site on (https://ajaydhungel.me)
 
 ## Features
 
