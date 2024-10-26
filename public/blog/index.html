@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64260&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Blogs | Ajay Dhungel</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Blog | Ajay Dhungel</title>
 <meta name="keywords" content="" />
-<meta name="description" content="Blogs - Ajay Dhungel">
+<meta name="description" content="Welcome to My Blog
+This is where I&rsquo;ll share my thoughts and experiences.
+
+Leveraging AWS CodePipeline and Serverless Framework to Deploy a Flask API
+Streamlining Deployment: Leveraging GitHub Actions to Deploy a Python Application on AWS ECS
+Trying AWS CloudFormation Git Sync for Git Management of Stacks
+Amazon ECR: How to Avoid Pull Rate Limits on Base Docker Images from Docker Hub
+AWS Step Functions: Creating a Busy-Waiting Flow to Wait for Successful Lambda Executions
+Using Amazon EventBridge with CodeBuild Project to Sync Cross-Account S3 Buckets
+Configuring AWS CI/CD CodePipeline with Terraform
+">
 <meta name="author" content="Ajay Dhungel">
-<link rel="canonical" href="https://ajaydhungel.me/blog/" />
+<link rel="canonical" href="http://localhost:64260/blog/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.7bfe087ae72df31787ec7a1360dd05ee246a179b51cf7a30a904b39d7f813b69.css" integrity="sha256-e/4Ieuct8xeH7HoTYN0F7iRqF5tRz3owqQSznX&#43;BO2k=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://ajaydhungel.me/images/profile.jpeg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://ajaydhungel.me/images/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://ajaydhungel.me/images/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://ajaydhungel.me/images/apple-touch-icon.png">
-<link rel="mask-icon" href="https://ajaydhungel.me/images/apple-touch-icon.png">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://localhost:64260/images/profile.jpeg">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:64260/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:64260/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:64260/images/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:64260/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://ajaydhungel.me/blog/index.xml">
-<link rel="alternate" hreflang="en" href="https://ajaydhungel.me/blog/" />
+<link rel="alternate" hreflang="en" href="http://localhost:64260/blog/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +70,7 @@
 </noscript>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -74,7 +85,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://ajaydhungel.me/" accesskey="h" title="Ajay Dhungel (Alt + H)">Ajay Dhungel</a>
+            <a href="http://localhost:64260/" accesskey="h" title="Ajay Dhungel (Alt + H)">Ajay Dhungel</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -105,39 +116,54 @@
                 <a href="/" title="Home"><span>Home</span></a>
             </li>
             <li>
-                <a href="https://ajaydhungel.me/notes/" title="Notes">
-                    <span>Notes</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://ajaydhungel.me/blog/" title="Blog">
-                    <span class="active">Blog</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://ajaydhungel.me/about/" title="About">
-                    <span>About</span>
+                <a href="http://localhost:64260/blog/" title="Blogs">
+                    <span class="active">Blogs</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://ajaydhungel.me/">Home</a></div>
-  <h1>Blogs</h1>
-</header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:64260/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:64260/blog/">Blogs</a></div>
+    <h1 class="post-title">
+      Blog
+    </h1>
+    <div class="post-meta">Ajay Dhungel</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <article class="post-entry"> 
-    <header class="entry-header">
-      <h2>Blog 1
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p></p>
-    </section>
-    <footer class="entry-footer">0 min&amp;nbsp;·&amp;nbsp;Ajay Dhungel</footer>
-    <a class="entry-link" aria-label="post link to Blog 1" href="https://ajaydhungel.me/blog/blog-list/"></a>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#welcome-to-my-blog" aria-label="Welcome to My Blog">Welcome to My Blog</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content">
+  <h2 id="welcome-to-my-blog">Welcome to My Blog</h2>
+<p>This is where I&rsquo;ll share my thoughts and experiences.</p>
+<ul>
+<li><a href="https://dev.to/aws-builders/leveraging-aws-codepipeline-pipeline-and-serverless-framework-to-deploy-a-flask-api-3jha">Leveraging AWS CodePipeline and Serverless Framework to Deploy a Flask API</a></li>
+<li><a href="https://awstip.com/streamlining-deployment-leveraging-github-actions-to-deploy-a-python-application-on-aws-ecs-187eb524a08d">Streamlining Deployment: Leveraging GitHub Actions to Deploy a Python Application on AWS ECS</a></li>
+<li><a href="https://community.aws/content/2b16dziFM3CwBTJbZNwOvdY5VNp/trying-aws-cloudformation-git-sync-for-git-management-of-stacks">Trying AWS CloudFormation Git Sync for Git Management of Stacks</a></li>
+<li><a href="https://awstip.com/amazon-ecr-how-to-avoid-pull-rate-limits-on-base-docker-images-from-docker-hub-47b35d3f9c3d">Amazon ECR: How to Avoid Pull Rate Limits on Base Docker Images from Docker Hub</a></li>
+<li><a href="https://medium.com/@adhungel2/aws-step-functions-creating-a-busy-waiting-flow-to-wait-for-successful-lambda-executions-c0f65d43ef33">AWS Step Functions: Creating a Busy-Waiting Flow to Wait for Successful Lambda Executions</a></li>
+<li><a href="https://awstip.com/using-amazon-eventbridge-with-codebuild-project-to-sync-cross-account-s3-buckets-43330e6af260">Using Amazon EventBridge with CodeBuild Project to Sync Cross-Account S3 Buckets</a></li>
+<li><a href="https://awstip.com/configuring-aws-ci-cd-codepipeline-with-terraform-3046f017dac5">Configuring AWS CI/CD CodePipeline with Terraform</a></li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
 </article>
     </main>
     
@@ -205,6 +231,53 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

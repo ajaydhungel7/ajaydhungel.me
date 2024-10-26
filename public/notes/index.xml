@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on Ajay Dhungel</title>
-    <link>https://ajaydhungel.me/notes/</link>
+    <link>http://localhost:1313/notes/</link>
     <description>Recent content in Notes on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://ajaydhungel.me/notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://ajaydhungel.me/notes/notes/</link>
+      <link>http://localhost:1313/notes/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ajaydhungel.me/notes/notes/</guid>
+      <guid>http://localhost:1313/notes/notes/</guid>
       <description></description>
     </item>
   </channel>

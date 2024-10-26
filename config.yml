@@ -7,18 +7,9 @@ theme: charlolamode
 
 menu:
     main:
-        - name: About
-          url: about/
-          weight: 30
-        - name: Blog
+        - name: Blogs
           url: blog/
-          weight: 20
-        # - name: Categories
-        #   url: categories/
-        #   weight: 10
-        - name: Notes
-          url: notes/
-          weight: 10
+        
         
 
 
@@ -27,7 +18,7 @@ params:
     profile-description: Hi, I am Ajay Dhungel. I am a Cloud & DevOps enthusiast.
     defaultTheme: auto
     #disableThemeToggle: true
-    ShowShareButtons: true
+    ShowShareButtons: false
     ShowReadingTime: true
     displayFullLangName: true
     ShowBreadCrumbs: true

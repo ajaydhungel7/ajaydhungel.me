@@ -2,28 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ajaydhungel.me/notes/notes/</loc>
+    <loc>http://localhost:64260/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/</loc>
+    <loc>http://localhost:64260/articles/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/articles/</loc>
+    <loc>http://localhost:64260/blog/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/blog/blog-list/</loc>
+    <loc>http://localhost:64260/blog/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/blog/</loc>
+    <loc>http://localhost:64260/categories/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/categories/</loc>
+    <loc>http://localhost:64260/contact/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/contact/</loc>
+    <loc>http://localhost:64260/projects/math-brain-trainer/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/projects/math-brain-trainer/</loc>
+    <loc>http://localhost:64260/projects/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/notes/</loc>
+    <loc>http://localhost:64260/articles/article/</loc>
   </url><url>
-    <loc>https://ajaydhungel.me/projects/</loc>
-  </url><url>
-    <loc>https://ajaydhungel.me/articles/article/</loc>
-  </url><url>
-    <loc>https://ajaydhungel.me/tags/</loc>
+    <loc>http://localhost:64260/tags/</loc>
   </url>
 </urlset>
