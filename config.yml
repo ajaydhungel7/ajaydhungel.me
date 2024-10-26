@@ -50,6 +50,8 @@ params:
           url: "https://buymeacoffee.com/ajaydhungel7"
         - name: instagram
           url: "https://www.instagram.com/ajaya_023/"
+        - name: upwork
+          url: "https://www.upwork.com/freelancers/~018b23e5bb6885caf7?viewMode=1"
 
 
     # change favicon in images folder (icon for web tab)

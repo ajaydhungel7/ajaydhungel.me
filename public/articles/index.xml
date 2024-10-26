@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Ajay Dhungel</title>
-    <link>http://localhost:64260/articles/</link>
+    <link>http://localhost:64943/articles/</link>
     <description>Recent content in Articles on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:64260/articles/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:64943/articles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Surprise Surprise</title>
-      <link>http://localhost:64260/articles/article/</link>
+      <link>http://localhost:64943/articles/article/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64260/articles/article/</guid>
-      <description>&lt;h3 id=&#34;thank-you-for-your-support&#34;&gt;Thank you for your support!&lt;/h3&gt;&#xA;&lt;p&gt;Hello. If you like this template, I&amp;rsquo;d be happy to get a &lt;a href=&#34;https://ko-fi.com/heycharlola&#34;&gt;coffee donation&lt;/a&gt; :)&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;http://localhost:64260/images/thankyou.png&#34;&gt;&#xA;&lt;/figure&gt;</description>
+      <guid>http://localhost:64943/articles/article/</guid>
+      <description>&lt;h3 id=&#34;thank-you-for-your-support&#34;&gt;Thank you for your support!&lt;/h3&gt;&#xA;&lt;p&gt;Hello. If you like this template, I&amp;rsquo;d be happy to get a &lt;a href=&#34;https://ko-fi.com/heycharlola&#34;&gt;coffee donation&lt;/a&gt; :)&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;http://localhost:64943/images/thankyou.png&#34;&gt;&#xA;&lt;/figure&gt;</description>
     </item>
   </channel>
 </rss>

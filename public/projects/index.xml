@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Ajay Dhungel</title>
-    <link>http://localhost:64260/projects/</link>
+    <link>http://localhost:64943/projects/</link>
     <description>Recent content in Projects on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:64260/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:64943/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math Braintrainer</title>
-      <link>http://localhost:64260/projects/math-brain-trainer/</link>
+      <link>http://localhost:64943/projects/math-brain-trainer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64260/projects/math-brain-trainer/</guid>
+      <guid>http://localhost:64943/projects/math-brain-trainer/</guid>
       <description></description>
     </item>
   </channel>
