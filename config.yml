@@ -35,8 +35,8 @@ params:
         imageWidth: 200
         imageHeight: 200
         buttons:
-            - name: Don't click me
-              url: https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley
+            #- name: Don't click me
+            # url: https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley
             
     mainSections:
       - articles
