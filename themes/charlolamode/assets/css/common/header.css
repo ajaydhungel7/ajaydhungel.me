@@ -74,6 +74,10 @@ body:not(.dark) #sun {
     border-bottom: 2px solid currentColor;
 }
 
+#menu a:hover {
+    color: #0ac7e8; /* Purplish color on hover */
+}
+
 .lang-switch li,
 .lang-switch ul,
 .logo-switches {
