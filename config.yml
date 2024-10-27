@@ -9,8 +9,8 @@ menu:
     main:
         - name: Blogs
           url: blog/
-        - name: CV
-          url: cv/
+        - name: About
+          url: about/
         
         
 

@@ -1,6 +1,6 @@
 ---
 draft: false
-url: "/cv/"
+url: "/about/"
 author: Ajay Dhungel
 showReadingTime: false
 ---
