@@ -40,6 +40,10 @@
     width: 26px;
 }
 
+.social-icons a:hover {
+    color: #0ac7e8; /* Replace this with the color you want on hover */
+}
+
 code {
     direction: ltr;
 }
