@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:58305/cv/</loc>
+    <loc>http://localhost:58928/cv/</loc>
   </url><url>
-    <loc>http://localhost:58305/</loc>
+    <loc>http://localhost:58928/</loc>
   </url><url>
-    <loc>http://localhost:58305/blog/</loc>
+    <loc>http://localhost:58928/blog/</loc>
   </url><url>
-    <loc>http://localhost:58305/blog/</loc>
+    <loc>http://localhost:58928/blog/</loc>
   </url><url>
-    <loc>http://localhost:58305/categories/</loc>
+    <loc>http://localhost:58928/categories/</loc>
   </url><url>
-    <loc>http://localhost:58305/cv/</loc>
+    <loc>http://localhost:58928/cv/</loc>
   </url><url>
-    <loc>http://localhost:58305/tags/</loc>
+    <loc>http://localhost:58928/tags/</loc>
   </url>
 </urlset>
