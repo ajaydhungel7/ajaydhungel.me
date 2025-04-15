@@ -33,7 +33,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           audience: sts.amazonaws.com
-          role-to-assume: arn:aws:iam::544234170512:role/githubactions-s3
+          role-to-assume: arn:aws:iam::544234170512:role/GithubRole
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Deploy to S3 bucket
