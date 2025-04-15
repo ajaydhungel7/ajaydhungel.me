@@ -38,4 +38,4 @@ jobs:
 
       - name: Deploy to S3 bucket
         run: |
-          aws s3 sync public/ s3://my-frontend-bucket178/ --delete
+          aws s3 sync public/ s3://ajaydhungel.me/ --delete
