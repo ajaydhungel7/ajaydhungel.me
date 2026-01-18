@@ -1,6 +1,6 @@
 # Ajay's Hugo Profile
 
-Welcome to my personal profile site built with Hugo using the [CharlolaMode theme](https://github.com/charlola/hugo-theme-charlolamode). This repository contains the necessary files to set up and customize your profile. Find this site on (https://ajaydhungel.me)
+Welcome to my personal profile site built with Hugo using the [CharlolaMode theme](https://github.com/charlola/hugo-theme-charlolamode). This repository contains the necessary files to set up and customize your profile. Find this site on (https://ajaydhungel.blog)
 
 ## Features
 
@@ -45,7 +45,7 @@ Access your profile at http://localhost:1313.
 
 **No code required!** Edit your site content easily:
 
-1. **Using CMS (Recommended)**: Visit `https://ajaydhungel.me/admin/` to use the visual content editor
+1. **Using CMS (Recommended)**: Visit `https://ajaydhungel.blog/admin/` to use the visual content editor
 2. **GitHub Web Editor**: Edit files directly on GitHub
 3. **Local Development**: See [CONTENT_EDITING.md](CONTENT_EDITING.md) for detailed instructions
 

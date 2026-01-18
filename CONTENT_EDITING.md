@@ -5,13 +5,14 @@ This guide explains how to edit your site content without making code-level chan
 ## Option 1: Using Decap CMS (Recommended - No Code Required)
 
 ### Access the CMS
-1. Go to `https://ajaydhungel.me/admin/` in your browser
+1. Go to `https://ajaydhungel.blog/admin/` in your browser
 2. Click "Login with GitHub"
 3. Authorize the application
 4. You'll see a user-friendly interface to edit your content
 
 ### What You Can Edit
-- **Blog Posts**: Create, edit, and delete blog posts
+- **Blog Posts**: ✨ Create, edit, and delete individual blog posts (NEW!)
+- **Blog Page**: Edit the main blog listing page
 - **About Page**: Update your about page content
 - **Site Configuration**: Update site title, description, social links, etc.
 
@@ -89,8 +90,15 @@ Your content uses Markdown format. Here are the basics:
 2. Edit `content/about/about.md` directly
 
 ### Add a Blog Post
-1. Use Decap CMS: Go to `/admin/` → Blog Posts → New Post OR
-2. Create a new file in `content/blog/your-post-name.md`
+1. **Using CMS (Recommended)**: 
+   - Go to `https://ajaydhungel.blog/admin/`
+   - Click on "Blog Posts" in the sidebar
+   - Click "New Blog Post"
+   - Fill in the title, date, content, and tags
+   - Set `draft: false` when ready to publish
+   - Click "Publish" to save
+   
+2. **Manual Method**: Create a new file in `content/articles/your-post-name.md` with proper frontmatter
 
 ### Update Social Links
 1. Use Decap CMS: Go to `/admin/` → Site Configuration OR

@@ -2,13 +2,32 @@ backend:
   name: github
   repo: ajaydhungel7/ajaydhungel.me
   branch: main
-  base_url: https://ajaydhungel.me
+  base_url: https://ajaydhungel.blog
   auth_type: pkce
 
 media_folder: "static/images"
 public_folder: "/images"
 
 collections:
+  - name: "blog_posts"
+    label: "Blog Posts"
+    folder: "content/articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", default: ""}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Author", name: "author", widget: "string", default: "Ajay Dhungel"}
+      - {label: "Show Reading Time", name: "showReadingTime", widget: "boolean", default: true}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: {label: "Tag", name: "tag", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
   - name: "blog"
     label: "Blog Page"
     files:
