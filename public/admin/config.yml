@@ -1,0 +1,74 @@
+backend:
+  name: github
+  repo: ajaydhungel7/ajaydhungel.me
+  branch: main
+  base_url: https://ajaydhungel.blog
+  auth_type: pkce
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog_posts"
+    label: "Blog Posts"
+    folder: "content/articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", default: ""}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Author", name: "author", widget: "string", default: "Ajay Dhungel"}
+      - {label: "Show Reading Time", name: "showReadingTime", widget: "boolean", default: true}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: {label: "Tag", name: "tag", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "blog"
+    label: "Blog Page"
+    files:
+      - label: "Blog"
+        name: "blog"
+        file: "content/blog/blog.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Draft", name: "draft", widget: "boolean", default: false}
+          - {label: "URL", name: "url", widget: "string", default: "/blog/"}
+          - {label: "Author", name: "author", widget: "string", default: "Ajay Dhungel"}
+          - {label: "Show Reading Time", name: "showReadingTime", widget: "boolean", default: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - label: "About"
+        name: "about"
+        file: "content/about/about.md"
+        fields:
+          - {label: "Draft", name: "draft", widget: "boolean", default: false}
+          - {label: "URL", name: "url", widget: "string", default: "/about/"}
+          - {label: "Author", name: "author", widget: "string", default: "Ajay Dhungel"}
+          - {label: "Show Reading Time", name: "showReadingTime", widget: "boolean", default: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "site_config"
+    label: "Site Configuration"
+    files:
+      - label: "Site Settings"
+        name: "config"
+        file: "config.yml"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Author", name: "params.author", widget: "string"}
+          - {label: "Profile Description", name: "params.profile-description", widget: "text"}
+          - {label: "Profile Image URL", name: "params.profileMode.imageUrl", widget: "string"}
+          - label: "Social Icons"
+            name: "params.socialIcons"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
