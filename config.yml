@@ -7,10 +7,12 @@ theme: charlolamode
 
 menu:
     main:
-        - name: Blogs
+        - name: Articles
           url: blog/
         - name: About
           url: about/
+        - name: Certifications
+          url: certifications/
         
 
 

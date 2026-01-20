@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Articles"
 draft: false
 url: "/blog/"
 author: Ajay Dhungel
