@@ -8,6 +8,6 @@ showReadingTime: false
 
 ## Latest Articles
 
-Browse my latest articles from Medium. Click on any card to read the full post.
+Browse my latest blogs and articles. Click on any card to read the full post.
 
 {{< medium-feed >}}

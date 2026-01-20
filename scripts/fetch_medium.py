@@ -28,17 +28,30 @@ def extract_thumbnail(content_html):
     return match.group(1) if match else ""
 
 
-def format_date(raw):
+def parse_datetime(raw):
     if not raw:
-        return ""
+        return None
     try:
-        dt = parsedate_to_datetime(raw)
+        return parsedate_to_datetime(raw)
     except Exception:
         try:
-            dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+            return datetime.fromisoformat(raw.replace("Z", "+00:00"))
         except Exception:
-            return raw
+            return None
+
+
+def format_date(raw):
+    dt = parse_datetime(raw)
+    if not dt:
+        return raw or ""
     return dt.strftime("%b %d, %Y")
+
+
+def iso_date(raw):
+    dt = parse_datetime(raw)
+    if not dt:
+        return ""
+    return dt.isoformat()
 
 
 def parse_rss(xml_bytes):
@@ -53,7 +66,8 @@ def parse_rss(xml_bytes):
     for item in root.findall(".//item"):
         title = text_or_empty(item.find("title"))
         link = text_or_empty(item.find("link"))
-        pub_date = format_date(text_or_empty(item.find("pubDate")))
+        pub_date_raw = text_or_empty(item.find("pubDate"))
+        pub_date = format_date(pub_date_raw)
         content = text_or_empty(item.find("content:encoded", ns)) or text_or_empty(
             item.find("description")
         )
@@ -80,6 +94,7 @@ def parse_rss(xml_bytes):
                 "title": title,
                 "link": link,
                 "pubDate": pub_date,
+                "pubDateRaw": iso_date(pub_date_raw),
                 "thumbnail": thumbnail,
                 "source": "Medium",
             }
@@ -92,7 +107,8 @@ def parse_rss(xml_bytes):
         title = text_or_empty(entry.find("atom:title", ns))
         link_el = entry.find("atom:link", ns)
         link = link_el.attrib.get("href", "").strip() if link_el is not None else ""
-        pub_date = format_date(text_or_empty(entry.find("atom:updated", ns)))
+        pub_date_raw = text_or_empty(entry.find("atom:updated", ns))
+        pub_date = format_date(pub_date_raw)
         content = text_or_empty(entry.find("atom:content", ns)) or text_or_empty(
             entry.find("atom:summary", ns)
         )
@@ -106,6 +122,7 @@ def parse_rss(xml_bytes):
                 "title": title,
                 "link": link,
                 "pubDate": pub_date,
+                "pubDateRaw": iso_date(pub_date_raw),
                 "thumbnail": thumbnail,
                 "source": "Medium",
             }
@@ -114,15 +131,46 @@ def parse_rss(xml_bytes):
     return items
 
 
+def fetch_json(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def fetch_devto(username):
+    url = f"https://dev.to/api/articles?username={username}"
+    data = fetch_json(url)
+    items = []
+    for item in data:
+        pub_date_raw = item.get("published_at", "")
+        items.append(
+            {
+                "title": item.get("title", ""),
+                "link": item.get("url", ""),
+                "pubDate": format_date(pub_date_raw),
+                "pubDateRaw": iso_date(pub_date_raw),
+                "thumbnail": item.get("cover_image") or item.get("social_image") or "",
+                "source": "Dev.to",
+            }
+        )
+    return items
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--username", required=True)
+    parser.add_argument("--devto-username", required=False)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
     rss_url = f"https://medium.com/feed/@{args.username}"
     xml_bytes = fetch_rss(rss_url)
     items = parse_rss(xml_bytes)
+
+    if args.devto_username:
+        items.extend(fetch_devto(args.devto_username))
+
+    items.sort(key=lambda item: item.get("pubDateRaw", ""), reverse=True)
 
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump({"items": items}, f, ensure_ascii=True, indent=2)

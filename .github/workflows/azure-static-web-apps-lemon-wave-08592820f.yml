@@ -31,7 +31,7 @@ jobs:
       - name: Fetch Medium feed
         run: |
           mkdir -p data
-          python3 scripts/fetch_medium.py --username adhungel2 --out data/medium.json
+          python3 scripts/fetch_medium.py --username adhungel2 --devto-username ajaydhungel23 --out data/medium.json
 
       - name: Build Hugo site
         run: hugo --environment production
