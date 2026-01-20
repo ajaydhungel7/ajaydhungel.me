@@ -1,0 +1,65 @@
+.credly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 20px 0 10px;
+}
+
+.credly-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.credly-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: var(--secondary);
+}
+
+.credly-thumb {
+  display: flex;
+  justify-content: center;
+}
+
+.credly-thumb img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.credly-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.credly-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.credly-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+
+.credly-error {
+  color: var(--secondary);
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .credly-grid {
+    grid-template-columns: 1fr;
+  }
+}

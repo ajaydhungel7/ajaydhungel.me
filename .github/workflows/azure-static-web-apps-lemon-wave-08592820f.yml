@@ -33,6 +33,11 @@ jobs:
           mkdir -p data
           python3 scripts/fetch_medium.py --username adhungel2 --devto-username ajaydhungel23 --out data/medium.json
 
+      - name: Fetch Credly badges
+        run: |
+          mkdir -p data
+          python3 scripts/fetch_credly.py --user ajay-dhungel.7261bfe6 --out data/credly.json
+
       - name: Build Hugo site
         run: hugo --environment production
 

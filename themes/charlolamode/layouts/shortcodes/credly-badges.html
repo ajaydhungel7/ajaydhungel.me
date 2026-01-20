@@ -1,0 +1,23 @@
+{{- $items := site.Data.credly.items -}}
+{{- if $items -}}
+<div class="credly-grid">
+  {{- range $items -}}
+  <a class="credly-card" href="{{ .link }}" target="_blank" rel="noopener noreferrer">
+    {{- if .thumbnail -}}
+    <div class="credly-thumb">
+      <img src="{{ .thumbnail }}" alt="{{ .title }}" loading="lazy">
+    </div>
+    {{- end -}}
+    <div class="credly-content">
+      <h3 class="credly-title">{{ .title }}</h3>
+      <div class="credly-meta">
+        {{- if .issuedAt -}}<span class="credly-date">Issued {{ .issuedAt }}</span>{{- end -}}
+        {{- if .expiresAt -}}<span class="credly-expiry">Expires {{ .expiresAt }}</span>{{- end -}}
+      </div>
+    </div>
+  </a>
+  {{- end -}}
+</div>
+{{- else -}}
+<p class="credly-error">Unable to load certifications right now.</p>
+{{- end -}}

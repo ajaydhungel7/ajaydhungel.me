@@ -51,16 +51,9 @@ Results-oriented DevOps Engineer specializing in AWS cloud solutions with 3+ yea
 - Optimize cloud infrastructure for cost and performance.
 
 ## Certifications  
-**AWS Certified Solutions Architect – Associate** 
+Verified credentials from Credly.
 
-- ![AWS Certified Solutions Architect – Associate](/imgs/C03.png "200x200")
-
-**AWS Certified DevOps Engineer – Professional**
-
-- ![AWS Certified DevOps Engineer – Professional](/images/C02.png "200x200")
-
-**HashiCorp Certified: Terraform Associate**
-- ![HashiCorp Certified: Terraform Associate](/imgs/003.png "400x200")
+{{< credly-badges >}}
 
 ## Education  
 **Bachelor in Information Management**  
