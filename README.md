@@ -7,8 +7,8 @@ Welcome to my personal profile site built with Hugo using the [CharlolaMode them
 - Responsive design
 - Customizable layouts
 - Easy integration of social media links
-- Support for blog posts and portfolios
-- **Content Management System (CMS)** - Edit content without code! See [CONTENT_EDITING.md](CONTENT_EDITING.md)
+- **Medium Feed Widget** - Automatically displays your latest Medium articles with thumbnails and titles
+- Beautiful grid layout with hover effects
 
 ## Getting Started
 
@@ -43,11 +43,16 @@ Access your profile at http://localhost:1313.
 
 ## Content Editing
 
-**No code required!** Edit your site content easily:
+Your blog page automatically displays your latest Medium articles. The feed is powered by the Medium Feed Widget which:
 
-1. **Using CMS (Recommended)**: Visit `https://ajaydhungel.blog/admin/` to use the visual content editor
-2. **GitHub Web Editor**: Edit files directly on GitHub
-3. **Local Development**: See [CONTENT_EDITING.md](CONTENT_EDITING.md) for detailed instructions
+1. **Fetches your Medium feed** automatically from `https://medium.com/@adhungel2`
+2. **Displays articles** with thumbnails, titles, and publication dates in a beautiful grid
+3. **Links directly to Medium** - clicking on any article takes you to the full post on Medium
+4. **No maintenance needed** - new articles appear automatically when you publish on Medium
+
+To customize the feed:
+- Edit the `data-medium-feed="adhungel2"` value in [content/blog/blog.md](content/blog/blog.md) to your Medium username
+- Adjust `data-medium-limit="6"` to show more or fewer articles
 
 ## Deployment
 

@@ -68,6 +68,9 @@
 <link rel="preload" href="{{ . }}" as="image">
 {{- end }}
 
+{{- /* Medium Feed CSS */}}
+<link crossorigin="anonymous" href="{{ "css/medium-feed.css" | absURL }}" rel="stylesheet">
+
 {{- /* Search */}}
 {{- if (eq .Layout `search`) -}}
 <link crossorigin="anonymous" rel="preload" as="fetch" href="../index.json">
