@@ -11,19 +11,25 @@ Toronto, ON
 ---
 
 ## Summary  
-Results-oriented DevOps Engineer specializing in AWS cloud solutions with 3+ years of experience architecting and implementing scalable, reliable infrastructure using Infrastructure as Code (IaC) and Kubernetes. Proven ability to automate processes, streamline deployments, and troubleshoot complex issues. Passionate advocate for continuous learning and delivering exceptional results.
+I select the right fit for the problem, keep systems practical, and avoid unnecessary complexity. I automate what makes sense, build for failure, and treat monitoring and cost control as first‑class requirements. Scaling and HA are valuable, but over‑engineering isn’t. I take pride in what I ship and fully own the systems I operate.
 
-## Skills  
-- **Cloud Platforms**: AWS (EC2, S3, RDS, VPC, Lambda, etc.)  
-- **Infrastructure as Code**: Terraform  
-- **Configuration Management**: Ansible, Chef  
-- **CI/CD**: Jenkins, GitLab CI  
-- **Scripting**: Bash, Python  
-- **Containers**: Docker, Kubernetes  
-- **Monitoring**: CloudWatch, Prometheus  
-- **Soft Skills**: Problem-solving, communication, teamwork  
+## Focus Areas  
+- **AWS Infrastructure**: EKS, ECS, Lambda, CloudWatch, databases  
+- **Infrastructure as Code**: Terraform, modular IaC for multi-env  
+- **Observability**: Monitoring, alerting, and incident workflows  
+- **Automation**: CI/CD and operational tooling  
+- **GenAI Platform**: MCP server + Agno agents for product workflows  
 
 ## Professional Experience  
+
+### DevOps Engineer  
+**Deskree** | Remote  
+*May 2025 - Jan 2026*  
+- Owned monitoring and alerting for application and infrastructure layers.  
+- Integrated Sentry with Slack and Linear for automated incident routing.  
+- Built CloudWatch alarms (Container Insights) and Lambda alert routing with status colors.  
+- Managed AWS infrastructure through Terraform Cloud with modular patterns across dev/prod.  
+- Managed Terraform Cloud VCS workflows: PR plans, merge applies, and environment promotion.
 
 ### Associate Cloud Engineer  
 **Genese Solution Pvt. Ltd.** | Lalitpur, Nepal  
@@ -49,11 +55,6 @@ Results-oriented DevOps Engineer specializing in AWS cloud solutions with 3+ yea
 - Design and deploy custom cloud solutions tailored to specific business needs.
 - Assist clients in migrating existing workloads to AWS.
 - Optimize cloud infrastructure for cost and performance.
-
-## Certifications  
-See my certifications at the dedicated page below.
-
-[View Certifications](/certifications/)
 
 ## Education  
 **Bachelor in Information Management**  
