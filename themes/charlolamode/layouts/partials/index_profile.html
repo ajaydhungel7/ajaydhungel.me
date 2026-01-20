@@ -8,6 +8,13 @@
         <h1>{{ .title | default $.Site.Title | markdownify }}</h1>
         <div class="profile-description">{{ .description | markdownify }}</div>
         {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
+        <div class="race-track" aria-hidden="true">
+            <span class="finish-flag">🏁</span>
+            <span class="f1-car f1-car--one">
+                🏎️
+                <span class="f1-dust">💨</span>
+            </span>
+        </div>
 
         {{- with .buttons }}
         <div class="buttons">

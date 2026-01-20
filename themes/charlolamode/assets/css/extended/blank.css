@@ -1,3 +1,65 @@
 /*
 This is just a placeholder blank stylesheet so as to support adding custom styles budled with theme's default styles
 */
+/* Home page race track animation */
+.race-track {
+  position: relative;
+  height: 30px;
+  margin-top: 12px;
+  overflow: hidden;
+  width: 75vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.f1-car {
+  position: absolute;
+  right: -10%;
+  font-size: 24px;
+  line-height: 1;
+  animation: f1-race 9s linear infinite;
+}
+
+.f1-dust {
+  position: absolute;
+  right: -18px;
+  top: 2px;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0;
+  animation: f1-dust 9s linear infinite;
+}
+
+.finish-flag {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.9;
+  transform: translateX(-50%);
+}
+
+@keyframes f1-race {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-130vw);
+  }
+}
+
+@keyframes f1-dust {
+  0% {
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  12% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
