@@ -23,28 +23,15 @@ async function loadMultipleFeedsWidget(config) {
     
     for (const source of sources) {
       try {
-        let feedUrl;
-        
-        if (source.type === 'medium') {
-          feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${source.username}`;
-        } else if (source.type === 'rss') {
-          feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.url)}`;
-        }
-        
-        if (!feedUrl) continue;
-        
-        const response = await fetch(feedUrl);
-        if (!response.ok) throw new Error(`Failed to fetch ${source.name} feed`);
-        
-        const data = await response.json();
-        if (data.items) {
-          data.items.forEach(item => {
-            allArticles.push({
-              ...item,
-              source: source.name
-            });
+        const items = await fetchFeedItems(source);
+        if (!items || items.length === 0) continue;
+
+        items.forEach(item => {
+          allArticles.push({
+            ...item,
+            source: source.name
           });
-        }
+        });
       } catch (error) {
         console.error(`Error loading ${source.name} feed:`, error);
       }
@@ -115,6 +102,93 @@ async function loadMediumFeed(username, containerId, limit = null) {
     sources: [{ type: 'medium', username, name: 'Medium' }],
     containerId,
     limit
+  });
+}
+
+async function fetchFeedItems(source) {
+  let rssUrl = '';
+
+  if (source.type === 'medium') {
+    rssUrl = `https://medium.com/feed/@${source.username}`;
+  } else if (source.type === 'rss') {
+    rssUrl = source.url;
+  }
+
+  if (!rssUrl) return [];
+
+  return fetchRssItems(rssUrl);
+}
+
+async function fetchRssItems(rssUrl) {
+  const strategies = [
+    () => fetchRss2Json(rssUrl),
+    () => fetchAllOriginsRss(rssUrl)
+  ];
+
+  let lastError = null;
+  for (const strategy of strategies) {
+    try {
+      const items = await strategy();
+      if (items && items.length > 0) return items;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError || new Error('Unable to load RSS feed');
+}
+
+async function fetchRss2Json(rssUrl) {
+  const feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+  const response = await fetch(feedUrl);
+  if (!response.ok) throw new Error('rss2json request failed');
+
+  const data = await response.json();
+  if (data.status && data.status !== 'ok') {
+    throw new Error(data.message || 'rss2json error');
+  }
+  if (!data.items) return [];
+
+  return data.items.map(item => ({
+    title: item.title,
+    link: item.link,
+    pubDate: item.pubDate || item.pubdate || '',
+    content: item.content || item.description || ''
+  }));
+}
+
+async function fetchAllOriginsRss(rssUrl) {
+  const feedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
+  const response = await fetch(feedUrl);
+  if (!response.ok) throw new Error('allorigins request failed');
+
+  const text = await response.text();
+  return parseRssXml(text);
+}
+
+function parseRssXml(xmlText) {
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(xmlText, 'text/xml');
+
+  const items = Array.from(xml.querySelectorAll('item, entry'));
+  return items.map(item => {
+    const title = item.querySelector('title')?.textContent?.trim() || '';
+    const linkEl = item.querySelector('link');
+    const link = linkEl?.getAttribute('href') || linkEl?.textContent?.trim() || item.querySelector('guid')?.textContent?.trim() || '';
+    const pubDate = item.querySelector('pubDate')?.textContent?.trim() || item.querySelector('updated')?.textContent?.trim() || '';
+    const content =
+      item.querySelector('content\\:encoded')?.textContent ||
+      item.querySelector('content')?.textContent ||
+      item.querySelector('description')?.textContent ||
+      item.querySelector('summary')?.textContent ||
+      '';
+
+    return {
+      title,
+      link,
+      pubDate,
+      content
+    };
   });
 }
 
