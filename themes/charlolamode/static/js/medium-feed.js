@@ -52,6 +52,14 @@ async function loadMultipleFeedsWidget(config) {
     
     // Limit if specified
     const articles = limit ? uniqueArticles.slice(0, limit) : uniqueArticles;
+
+    if (articles.length === 0) {
+      const firstMedium = sources.find(s => s.type === 'medium' && s.username);
+      const fallbackLink = firstMedium ? `https://medium.com/@${firstMedium.username}` : '';
+      const linkHtml = fallbackLink ? ` <a href="${fallbackLink}" target="_blank" rel="noopener noreferrer">View on Medium</a>` : '';
+      container.innerHTML = `<p class="medium-feed-error">Unable to load articles right now.${linkHtml}</p>`;
+      return;
+    }
     
     const feedGrid = document.createElement('div');
     feedGrid.className = 'medium-feed-grid';
@@ -122,7 +130,8 @@ async function fetchFeedItems(source) {
 async function fetchRssItems(rssUrl) {
   const strategies = [
     () => fetchRss2Json(rssUrl),
-    () => fetchAllOriginsRss(rssUrl)
+    () => fetchAllOriginsRss(rssUrl),
+    () => fetchJinaRss(rssUrl)
   ];
 
   let lastError = null;
@@ -162,6 +171,16 @@ async function fetchAllOriginsRss(rssUrl) {
   const feedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
   const response = await fetch(feedUrl);
   if (!response.ok) throw new Error('allorigins request failed');
+
+  const text = await response.text();
+  return parseRssXml(text);
+}
+
+async function fetchJinaRss(rssUrl) {
+  const normalized = rssUrl.replace(/^https?:\/\//, '');
+  const feedUrl = `https://r.jina.ai/http://${normalized}`;
+  const response = await fetch(feedUrl);
+  if (!response.ok) throw new Error('jina request failed');
 
   const text = await response.text();
   return parseRssXml(text);

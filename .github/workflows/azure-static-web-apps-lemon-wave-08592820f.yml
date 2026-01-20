@@ -5,6 +5,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
 
 env:
   AWS_REGION: us-east-1
@@ -25,6 +27,11 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.125.0' # Change this if you use a different Hugo version
+
+      - name: Fetch Medium feed
+        run: |
+          mkdir -p data
+          python3 scripts/fetch_medium.py --username adhungel2 --out data/medium.json
 
       - name: Build Hugo site
         run: hugo --environment production

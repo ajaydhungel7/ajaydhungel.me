@@ -1,0 +1,25 @@
+{{- $items := site.Data.medium.items -}}
+{{- if $items -}}
+<div class="medium-feed-grid">
+  {{- range $items -}}
+  <a class="medium-feed-item" href="{{ .link }}" target="_blank" rel="noopener noreferrer">
+    <div class="medium-feed-card">
+      {{- if .thumbnail -}}
+      <div class="medium-feed-image">
+        <img src="{{ .thumbnail }}" alt="{{ .title }}" loading="lazy">
+      </div>
+      {{- end -}}
+      <div class="medium-feed-content">
+        <h3 class="medium-feed-title">{{ .title }}</h3>
+        <div class="medium-feed-meta">
+          {{- if .pubDate -}}<span class="medium-feed-date">{{ .pubDate }}</span>{{- end -}}
+          {{- if .source -}}<span class="medium-feed-source">{{ .source }}</span>{{- end -}}
+        </div>
+      </div>
+    </div>
+  </a>
+  {{- end -}}
+</div>
+{{- else -}}
+<p class="medium-feed-error">Unable to load articles right now.</p>
+{{- end -}}
