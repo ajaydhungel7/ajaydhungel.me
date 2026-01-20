@@ -83,4 +83,4 @@ if __name__ == "__main__":
         main()
     except Exception as exc:
         print(f"Failed to fetch Credly badges: {exc}", file=sys.stderr)
-        sys.exit(1)
+        sys.exit(0)

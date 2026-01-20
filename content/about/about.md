@@ -51,9 +51,9 @@ Results-oriented DevOps Engineer specializing in AWS cloud solutions with 3+ yea
 - Optimize cloud infrastructure for cost and performance.
 
 ## Certifications  
-Verified credentials from Credly.
+See my certifications at the dedicated page below.
 
-{{< credly-badges >}}
+[View Certifications](/certifications/)
 
 ## Education  
 **Bachelor in Information Management**  

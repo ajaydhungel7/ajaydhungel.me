@@ -37,6 +37,12 @@ jobs:
         run: |
           mkdir -p data
           python3 scripts/fetch_credly.py --user ajay-dhungel.7261bfe6 --out data/credly.json
+          python3 - <<'PY'
+          import json
+          with open('data/credly.json') as f:
+              data = json.load(f)
+          print(f"Credly badges: {len(data.get('items', []))}")
+          PY
 
       - name: Build Hugo site
         run: hugo --environment production

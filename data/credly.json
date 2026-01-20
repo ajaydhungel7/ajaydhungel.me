@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "title": "AWS Certified Generative AI Developer - Professional",
+      "link": "https://www.credly.com/badges/331486d8-34d0-4dfe-b9f3-2fb4955639e6",
+      "issuedAt": "Jan 16, 2026",
+      "issuedAtRaw": "2026-01-16T18:00:00-06:00",
+      "expiresAt": "Jan 16, 2029",
+      "thumbnail": "https://images.credly.com/images/52c6e5ac-9516-4944-a4df-e31b23c9bbf2/blob",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified Generative AI Developer - Professional Early Adopter",
+      "link": "https://www.credly.com/badges/a60d05db-fce9-4ac5-b4c0-bca33af19f7b",
+      "issuedAt": "Jan 16, 2026",
+      "issuedAtRaw": "2026-01-16T18:00:00-06:00",
+      "expiresAt": "",
+      "thumbnail": "https://images.credly.com/images/9de9a2f7-3259-4720-bb74-095563bb1e49/blob",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified Solutions Architect \u2013 Professional",
+      "link": "https://www.credly.com/badges/eda6d524-bc58-44c6-8a49-cdcf478592b6",
+      "issuedAt": "Jan 07, 2026",
+      "issuedAtRaw": "2026-01-07T18:00:00-06:00",
+      "expiresAt": "Jan 07, 2029",
+      "thumbnail": "https://images.credly.com/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified CloudOps Engineer \u2013 Associate",
+      "link": "https://www.credly.com/badges/368526cf-da9f-4c0f-857c-e3f58ccdb205",
+      "issuedAt": "Oct 03, 2025",
+      "issuedAtRaw": "2025-10-03T19:00:00-05:00",
+      "expiresAt": "Oct 03, 2028",
+      "thumbnail": "https://images.credly.com/images/88a6405e-0f26-442a-95ed-f9b9db4c857e/blob",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified Machine Learning Engineer \u2013 Associate",
+      "link": "https://www.credly.com/badges/b6d80b3e-e1c3-40de-95fa-f27d82a23612",
+      "issuedAt": "Feb 13, 2025",
+      "issuedAtRaw": "2025-02-13T18:00:00-06:00",
+      "expiresAt": "Jan 16, 2029",
+      "thumbnail": "https://images.credly.com/images/1a634b4e-3d6b-4a74-b118-c0dcb429e8d2/image.png",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified AI Practitioner",
+      "link": "https://www.credly.com/badges/46d3891b-6fde-44d8-aaa9-daad3f88d732",
+      "issuedAt": "Jan 01, 2025",
+      "issuedAtRaw": "2025-01-01T18:00:00-06:00",
+      "expiresAt": "Jan 16, 2029",
+      "thumbnail": "https://images.credly.com/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified DevOps Engineer \u2013 Professional",
+      "link": "https://www.credly.com/badges/632abc97-a50d-4cf1-a354-dd4b9271e8fc",
+      "issuedAt": "Sep 08, 2024",
+      "issuedAtRaw": "2024-09-08T19:00:00-05:00",
+      "expiresAt": "Sep 08, 2027",
+      "thumbnail": "https://images.credly.com/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png",
+      "source": "Credly"
+    },
+    {
+      "title": "HashiCorp Certified: Terraform Associate (003)",
+      "link": "https://www.credly.com/badges/9fac0744-1127-4002-94c1-cdaea292a4b7",
+      "issuedAt": "Dec 25, 2023",
+      "issuedAtRaw": "2023-12-25T18:00:00-06:00",
+      "expiresAt": "Dec 25, 2025",
+      "thumbnail": "https://images.credly.com/images/0dc62494-dc94-469a-83af-e35309f27356/blob",
+      "source": "Credly"
+    }
+  ]
+}
