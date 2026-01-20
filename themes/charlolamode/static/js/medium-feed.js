@@ -57,7 +57,7 @@ async function loadMultipleFeedsWidget(config) {
     feedGrid.className = 'medium-feed-grid';
     
     articles.forEach(article => {
-      const thumbnail = extractImageFromContent(article.content);
+      const thumbnail = article.thumbnail || extractImageFromContent(article.content);
       const pubDate = new Date(article.pubDate).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
@@ -153,7 +153,8 @@ async function fetchRss2Json(rssUrl) {
     title: item.title,
     link: item.link,
     pubDate: item.pubDate || item.pubdate || '',
-    content: item.content || item.description || ''
+    content: item.content || item.description || '',
+    thumbnail: item.thumbnail || item.enclosure?.link || ''
   }));
 }
 
@@ -182,12 +183,18 @@ function parseRssXml(xmlText) {
       item.querySelector('description')?.textContent ||
       item.querySelector('summary')?.textContent ||
       '';
+    const thumbnail =
+      item.querySelector('media\\:thumbnail')?.getAttribute('url') ||
+      item.querySelector('media\\:content')?.getAttribute('url') ||
+      item.querySelector('enclosure')?.getAttribute('url') ||
+      '';
 
     return {
       title,
       link,
       pubDate,
-      content
+      content,
+      thumbnail
     };
   });
 }
