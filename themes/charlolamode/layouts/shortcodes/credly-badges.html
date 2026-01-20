@@ -1,23 +1,55 @@
 {{- $items := site.Data.credly.items -}}
 {{- if $items -}}
-<div class="credly-grid">
-  {{- range $items -}}
-  <a class="credly-card" href="{{ .link }}" target="_blank" rel="noopener noreferrer">
-    {{- if .thumbnail -}}
-    <div class="credly-thumb">
-      <img src="{{ .thumbnail }}" alt="{{ .title }}" loading="lazy">
-    </div>
-    {{- end -}}
-    <div class="credly-content">
-      <h3 class="credly-title">{{ .title }}</h3>
-      <div class="credly-meta">
-        {{- if .issuedAt -}}<span class="credly-date">Issued {{ .issuedAt }}</span>{{- end -}}
-        {{- if .expiresAt -}}<span class="credly-expiry">Expires {{ .expiresAt }}</span>{{- end -}}
-      </div>
-    </div>
-  </a>
+{{- $scratch := newScratch -}}
+{{- range $items -}}
+  {{- $title := lower .title -}}
+  {{- if in $title "early adopter" -}}
+    {{- $scratch.Add "early" (slice .) -}}
+  {{- else if in $title "professional" -}}
+    {{- $scratch.Add "professional" (slice .) -}}
+  {{- else if in $title "associate" -}}
+    {{- $scratch.Add "associate" (slice .) -}}
+  {{- else if in $title "practitioner" -}}
+    {{- $scratch.Add "practitioner" (slice .) -}}
+  {{- else -}}
+    {{- $scratch.Add "other" (slice .) -}}
   {{- end -}}
-</div>
+{{- end -}}
+
+{{- $sections := slice
+  (dict "key" "early" "title" "Early Adopter")
+  (dict "key" "professional" "title" "Professional")
+  (dict "key" "associate" "title" "Associate")
+  (dict "key" "practitioner" "title" "Practitioner")
+  (dict "key" "other" "title" "Other")
+ -}}
+
+{{- range $sections -}}
+  {{- $list := $scratch.Get .key -}}
+  {{- if $list -}}
+  <section class="credly-section">
+    <h3 class="credly-section-title">{{ .title }}</h3>
+    <div class="credly-grid">
+      {{- range $list -}}
+      <a class="credly-card" href="{{ .link }}" target="_blank" rel="noopener noreferrer">
+        {{- if .thumbnail -}}
+        <div class="credly-thumb">
+          <img src="{{ .thumbnail }}" alt="{{ .title }}" loading="lazy">
+        </div>
+        {{- end -}}
+        <div class="credly-content">
+          <h4 class="credly-title">{{ .title }}</h4>
+          <div class="credly-meta">
+            {{- if .issuedAt -}}<span class="credly-date">Issued {{ .issuedAt }}</span>{{- end -}}
+            {{- if .expiresAt -}}<span class="credly-expiry">Expires {{ .expiresAt }}</span>{{- end -}}
+          </div>
+        </div>
+      </a>
+      {{- end -}}
+    </div>
+  </section>
+  {{- end -}}
+{{- end -}}
 {{- else -}}
 <p class="credly-error">Unable to load certifications right now.</p>
 {{- end -}}

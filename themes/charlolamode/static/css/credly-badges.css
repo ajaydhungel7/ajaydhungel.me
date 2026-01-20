@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  margin: 20px 0 10px;
+  margin: 12px 0 20px;
 }
 
 
@@ -57,6 +57,14 @@
 .credly-error {
   color: var(--secondary);
   margin-top: 10px;
+}
+
+.credly-section {
+  margin: 18px 0 26px;
+}
+
+.credly-section-title {
+  margin: 0 0 8px;
 }
 
 @media (max-width: 600px) {
