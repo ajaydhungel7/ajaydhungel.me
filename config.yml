@@ -9,6 +9,8 @@ menu:
     main:
         - name: Articles
           url: blog/
+        - name: Blog
+          url: posts/
         - name: About
           url: about/
         - name: Certifications
