@@ -9,7 +9,7 @@ menu:
     main:
         - name: Articles
           url: blog/
-        - name: Blog
+        - name: Blogs
           url: posts/
         - name: About
           url: about/
