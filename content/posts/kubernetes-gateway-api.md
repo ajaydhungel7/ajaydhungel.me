@@ -1,9 +1,9 @@
 ---
-title: "Kubernetes Gateway API: The End of Ingress Annotation Hell"
+title: "Kubernetes Gateway API v1.5: The End of Ingress Annotation Hell"
 date: 2026-04-28
 draft: false
 author: Ajay Dhungel
-description: "A deep dive into the Kubernetes Gateway API, what problems it solves over Ingress, and real YAML examples using Nginx, AWS ALB, and the AWS Gateway API controller."
+description: "A deep dive into the Kubernetes Gateway API, what problems it solves over Ingress, real YAML examples using Nginx, AWS ALB, and the AWS Gateway API controller, plus what just landed in v1.5."
 tags: ["kubernetes", "networking", "gateway-api", "aws", "devops"]
 ShowReadingTime: true
 ShowToc: true
@@ -16,7 +16,7 @@ If you have spent any meaningful time running workloads on Kubernetes, you have 
 
 The Kubernetes Gateway API is the project's answer to that problem. It is not just a newer version of Ingress. It is a fundamentally different way of thinking about traffic routing in a cluster, one that actually maps to how teams are structured and how infrastructure responsibility is divided.
 
-This post walks through what Ingress could and could not do, why the Gateway API exists, and what it looks like in practice with Nginx, AWS ALB, and the AWS Gateway API controller.
+This post walks through what Ingress could and could not do, why the Gateway API exists, what it looks like in practice with Nginx, AWS ALB, and the AWS Gateway API controller, and what just landed in v1.5 released on April 21, 2026.
 
 ---
 
@@ -109,19 +109,21 @@ The Gateway API splits traffic routing across three resource types, each owned b
 
 This means an application team can deploy a new service and add a route to expose it without filing a ticket to the platform team. And the platform team can enforce policies at the Gateway level without blocking developers.
 
-### The standard API resources (v1.2)
+### The standard API resources (v1.5)
 
-Before jumping into examples, here is what is stable and production-ready today in the standard channel:
+Before jumping into examples, here is what is stable and production-ready in the standard channel as of v1.5, released April 21, 2026:
 
-| Resource | API Version |
-|---|---|
-| GatewayClass | v1 |
-| Gateway | v1 |
-| HTTPRoute | v1 |
-| GRPCRoute | v1 |
-| ReferenceGrant | v1beta1 |
+| Resource | API Version | Notes |
+|---|---|---|
+| GatewayClass | v1 | Stable |
+| Gateway | v1 | Stable |
+| HTTPRoute | v1 | Stable, now includes CORS filter |
+| GRPCRoute | v1 | Stable |
+| ReferenceGrant | v1beta1 | Stable |
+| TLSRoute | v1alpha2 | Graduated to standard in v1.5 |
+| ListenerSet | v1alpha2 | Graduated to standard in v1.5 |
 
-TCP, TLS, and UDP routes are still in the experimental channel. For most web workloads, the standard channel is all you need.
+TCP and UDP routes are still experimental. For most web workloads, the standard channel covers everything you need. And with v1.5 being the biggest release yet, the standard channel just got a lot more capable.
 
 ---
 
@@ -400,14 +402,80 @@ Notice that the `HTTPRoute` is identical to the Nginx example. The application t
 The Gateway API is not bundled with Kubernetes itself. You install it separately as CRDs:
 
 ```bash
-# Standard channel (recommended for production)
-kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.0/standard-install.yaml
+# Standard channel (recommended for production) -- v1.5 is the latest stable
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.5.0/standard-install.yaml
 
-# Experimental channel (adds TCPRoute, TLSRoute, UDPRoute, and more)
-kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.0/experimental-install.yaml
+# Experimental channel (adds TCPRoute, UDPRoute, and more)
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.5.0/experimental-install.yaml
 ```
 
 After that, you install your specific controller (Nginx Gateway Fabric, AWS Gateway API controller, Cilium, Envoy Gateway, etc.) which registers itself as a `GatewayClass`.
+
+---
+
+## What Just Changed in Gateway API v1.5
+
+Gateway API v1.5 dropped on April 21, 2026, and the team described it as the biggest release yet. The theme is graduation: six features moved from experimental to standard, meaning they are now production-ready and stable.
+
+### ListenerSet
+
+This is the most significant addition for anyone running multi-tenant clusters. Before ListenerSet, a `Gateway` could only hold listeners defined within its own spec. That created a hard coordination problem: if the platform team owns the Gateway and app teams need to add listeners for their own hostnames, someone has to file a ticket and wait.
+
+ListenerSet solves this by letting listeners be defined in separate resources that attach to a parent Gateway, similar to how HTTPRoute attaches to a Gateway. Each team can manage their own ListenerSet in their own namespace, and the Gateway merges them all together.
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: ListenerSet
+metadata:
+  name: payments-listeners
+  namespace: payments
+spec:
+  parentRef:
+    name: main-gateway
+    namespace: infra
+  listeners:
+    - name: payments-https
+      hostname: payments.example.com
+      port: 443
+      protocol: HTTPS
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: payments-tls
+```
+
+This also removes a practical limitation: a single Gateway was previously capped at 64 listeners. With ListenerSet, large shared gateways can scale well past that.
+
+### TLSRoute
+
+TLSRoute graduated to standard in v1.5. As covered earlier, this is for SNI-based passthrough routing where the encrypted traffic goes directly to the backend without the gateway terminating TLS. Most applications should still use TLS termination at the gateway with HTTPRoute, but for databases, mTLS-required services, and legacy apps that own their own certs, TLSRoute is now stable and production-ready.
+
+### HTTPRoute CORS Filter
+
+CORS policy configuration is now a first-class field in the standard channel. Before this, handling CORS headers required either custom plugins or nginx configuration snippets via annotations.
+
+```yaml
+filters:
+  - type: ExtensionRef
+    extensionRef:
+      group: gateway.networking.k8s.io
+      kind: HTTPRoute
+  - type: ResponseHeaderModifier
+    responseHeaderModifier:
+      set:
+        - name: Access-Control-Allow-Origin
+          value: "https://app.example.com"
+```
+
+### Client Certificate Validation
+
+Validating client certificates during mTLS connections is now stable. This is important for service-to-service authentication patterns where the gateway enforces that only clients presenting a valid cert can reach a backend.
+
+### What this release signals
+
+The v1.5 release also introduced a new release train model, borrowed from how the Kubernetes project itself ships. Features now cut on a freeze date rather than whenever they happen to be ready. That means more predictable releases and less time waiting for a feature to land in stable.
+
+If you are evaluating Gateway API for a production cluster, v1.5 is the release where the answer to "is this ready?" is clearly yes.
 
 ---
 
@@ -427,5 +495,6 @@ Ingress got Kubernetes networking to where it needed to be in the early years. G
 
 - [Kubernetes Gateway API official docs](https://gateway-api.sigs.k8s.io/)
 - [API Overview and concepts](https://gateway-api.sigs.k8s.io/concepts/api-overview/)
+- [Gateway API v1.5 release blog post](https://kubernetes.io/blog/2026/04/21/gateway-api-v1-5/)
 - [Implementations list](https://gateway-api.sigs.k8s.io/implementations/)
 - [AWS Gateway API Controller](https://www.gateway-api-controller.eks.aws.dev/)
