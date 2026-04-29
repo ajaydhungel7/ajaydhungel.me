@@ -9,6 +9,9 @@ tech: ["terraform", "aws", "github-actions"]
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true
+cover:
+  image: /imgs/terraform-terragrunt.png
+  alt: Terraform and Terragrunt
 ---
 
 ## Introduction
