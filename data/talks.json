@@ -11,12 +11,12 @@
     },
     {
       "event": "AWS User Group Toronto",
-      "title": "DevOps Practices for Cloud-Native Teams",
+      "title": "Multi-Agent Collaboration in Amazon Bedrock Using Terraform",
       "date": "2025",
       "location": "Toronto, ON, Canada",
-      "description": "A session at the AWS User Group Toronto covering modern DevOps workflows and cloud-native best practices.",
+      "description": "Shared my experience with the AWS New Voices Program and walked through building Multi-Agent Collaboration in Amazon Bedrock, with all infrastructure provisioned using Terraform.",
       "link": "",
-      "photo": ""
+      "photo": "/imgs/talk-aws-ug-toronto.jpeg"
     }
   ]
 }
