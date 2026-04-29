@@ -1,14 +1,14 @@
 {
   "items": [
     {
-      "event": "AWS Summit Toronto 2026",
-      "title": "Building a Personal AI Assistant in Minutes with OpenClaw",
-      "date": "June 3, 2026",
+      "event": "AWS User Group Toronto",
+      "title": "Multi-Agent Collaboration in Amazon Bedrock Using Terraform",
+      "date": "May 8, 2025",
       "location": "Toronto, ON, Canada",
-      "description": "An upcoming talk at AWS Summit Toronto 2026 on building a personal AI assistant quickly using OpenClaw, powered by AWS Lightsail with all infrastructure managed as code.",
-      "slides": "",
-      "link": "",
-      "photo": ""
+      "description": "Shared my experience with the AWS New Voices Program and walked through building Multi-Agent Collaboration in Amazon Bedrock, with all infrastructure provisioned using Terraform.",
+      "slides": "/slides/orchestrating-bedrock-agents.pptx",
+      "link": "https://www.meetup.com/aws-ug-toronto/events/307499391/?eventOrigin=group_events_list",
+      "photo": "/imgs/talk-aws-ug-toronto.jpeg"
     },
     {
       "event": "AWS Summit Toronto 2025",
@@ -21,14 +21,14 @@
       "photo": "/imgs/talk-aws-summit-toronto.png"
     },
     {
-      "event": "AWS User Group Toronto",
-      "title": "Multi-Agent Collaboration in Amazon Bedrock Using Terraform",
-      "date": "May 8, 2025",
+      "event": "AWS Summit Toronto 2026",
+      "title": "Building a Personal AI Assistant in Minutes with OpenClaw",
+      "date": "June 3, 2026",
       "location": "Toronto, ON, Canada",
-      "description": "Shared my experience with the AWS New Voices Program and walked through building Multi-Agent Collaboration in Amazon Bedrock, with all infrastructure provisioned using Terraform.",
-      "slides": "/slides/orchestrating-bedrock-agents.pptx",
-      "link": "https://www.meetup.com/aws-ug-toronto/events/307499391/?eventOrigin=group_events_list",
-      "photo": "/imgs/talk-aws-ug-toronto.jpeg"
+      "description": "An upcoming talk at AWS Summit Toronto 2026 on building a personal AI assistant quickly using OpenClaw, powered by AWS Lightsail with all infrastructure managed as code.",
+      "slides": "",
+      "link": "",
+      "photo": ""
     }
   ]
 }
