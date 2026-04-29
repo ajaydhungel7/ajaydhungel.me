@@ -1,10 +1,10 @@
 ---
-title: "How I Structure My Terragrunt Setup for Kubernetes Infrastructure"
+title: "How I Structure My Terragrunt Setup"
 date: 2026-04-29
 draft: false
 author: Ajay Dhungel
-description: "A walkthrough of how I structure Terragrunt for a real Kubernetes project, covering remote state, dependency chaining, env configs, and IRSA patterns."
-tags: ["terraform", "terragrunt", "kubernetes", "aws", "devops", "iac"]
+description: "A walkthrough of how I structure Terragrunt for real projects, covering bootstrapping with CloudFormation, remote state, environment configs, and dependency chaining."
+tags: ["terraform", "terragrunt", "aws", "devops", "iac", "github-actions"]
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true
@@ -12,28 +12,78 @@ ShowBreadCrumbs: true
 
 ## Introduction
 
-There are a lot of tutorials on Terraform. There are fewer on how to actually organize it when things get real. Once you have more than a handful of resources, a single `main.tf` becomes a liability. Once you have more than one environment, copying folders around becomes a nightmare.
+Terraform gets messy fast. A single `main.tf` works fine for a few resources. The moment you have multiple components that depend on each other, multiple environments, and a team sharing state, things start to break down.
 
-Terragrunt solves both problems. It is a thin wrapper around Terraform that adds DRY configuration, remote state management, and dependency tracking without changing how Terraform itself works.
+Terragrunt is a thin wrapper around Terraform that solves three specific problems: keeping your configuration DRY, managing remote state without repeating backend blocks everywhere, and wiring up dependencies between components so they share outputs cleanly.
 
-This is how I structure it for a real Kubernetes project on AWS, including VPC, EKS, IAM with IRSA, secrets, and container registries.
+This is how I structure it on real projects.
+
+---
+
+## Bootstrapping with CloudFormation
+
+Before Terragrunt can manage state, you need somewhere to put that state. This is the chicken-and-egg problem: you need infrastructure to run Terraform, but Terraform manages your infrastructure.
+
+I solve this with a CloudFormation template. CloudFormation is the right tool here because it is AWS-native, requires no local state, and can be deployed with a single CLI command before anything else exists. The template creates three things:
+
+1. An S3 bucket for Terraform state, with versioning, encryption, and public access blocked
+2. A GitHub Actions OIDC provider so your pipeline can authenticate to AWS without storing any credentials
+3. An IAM role that GitHub Actions assumes via that OIDC provider, with the permissions needed to run Terragrunt
+
+```bash
+aws cloudformation deploy \
+  --template-file bootstrap/bootstrap.yml \
+  --stack-name k8s-gitops-bootstrap \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --parameter-overrides \
+    ProjectName=k8s-gitops \
+    GitHubOrg=ajaydhungel7 \
+    GitHubRepo=k8s-gitops \
+    GitHubBranch=main
+```
+
+That is the only manual step in the entire setup. After this runs, the stack outputs the S3 bucket name and the IAM role ARN. Everything else is automated.
+
+### Why OIDC instead of access keys
+
+The OIDC approach means GitHub Actions never holds a long-lived AWS credential. Instead, when a workflow runs, GitHub mints a short-lived token scoped to that specific repo and branch. AWS verifies the token against the OIDC provider and issues temporary credentials.
+
+The trust policy on the IAM role controls exactly which repo and branch can assume it:
+
+```yaml
+Condition:
+  StringEquals:
+    token.actions.githubusercontent.com:aud: sts.amazonaws.com
+  StringLike:
+    token.actions.githubusercontent.com:sub: "repo:ajaydhungel7/k8s-gitops:ref:refs/heads/main"
+```
+
+Nothing can assume this role except a GitHub Actions run on `main` in that specific repo. No key rotation, no secrets to manage, no risk of a leaked credential.
+
+In your GitHub Actions workflow, you reference the role ARN from the CloudFormation output:
+
+```yaml
+- name: Configure AWS credentials
+  uses: aws-actions/configure-aws-credentials@v4
+  with:
+    role-to-assume: arn:aws:iam::123456789012:role/k8s-gitops-github-actions
+    aws-region: us-east-1
+```
 
 ---
 
 ## The Folder Structure
 
-Everything lives under a `terraform/` directory at the root of the project. The split is straightforward: `environments/` holds the live Terragrunt configs per environment, and `modules/` holds the reusable Terraform code.
+Once bootstrapping is done, all infrastructure lives under `terraform/` with a clean split between live configs and reusable modules:
 
 ```
 terraform/
-├── root.hcl                        # Global config: remote state, project, region
-├── bootstrap/                      # One-time AWS account setup
-│   ├── main.tf
-│   ├── outputs.tf
-│   └── variables.tf
+├── root.hcl                      # Global config: remote state, project name, region
+├── bootstrap/
+│   └── bootstrap.yml             # CloudFormation template, run once manually
 ├── environments/
 │   └── dev/
-│       ├── env.hcl                 # Dev-specific variables
+│       ├── env.hcl               # Dev-specific variables
 │       ├── vpc/
 │       │   └── terragrunt.hcl
 │       ├── secrets/
@@ -55,13 +105,13 @@ terraform/
     └── ecr/
 ```
 
-Each component under `environments/dev/` gets its own folder with a single `terragrunt.hcl`. Each folder corresponds to one module in `modules/`. The state file for each component is stored separately in S3, which means you can plan and apply them independently.
+`environments/` is where Terragrunt lives. Each subfolder is one deployable component with its own state file. `modules/` is plain Terraform, reusable code with no Terragrunt in it. The two are intentionally separate.
 
 ---
 
 ## The Root Config
 
-The `root.hcl` file sits at the top of the `terraform/` directory and handles two things: extracting globals from the directory path and configuring remote state for every component automatically.
+`root.hcl` sits at the top of `terraform/` and is included by every component. It handles remote state configuration once, for everything.
 
 ```hcl
 locals {
@@ -89,25 +139,19 @@ remote_state {
 }
 ```
 
-The `path_relative_to_include()` function returns the path from the root to the current component, like `environments/dev/vpc`. That becomes the S3 key, so each component gets its own state file:
+Two things worth calling out here.
 
-```
-k8s-gitops-terraform-state/
-  environments/dev/vpc/terraform.tfstate
-  environments/dev/eks-cluster/terraform.tfstate
-  environments/dev/iam/terraform.tfstate
-  ...
-```
+The `generate` block auto-creates a `backend.tf` file in each component directory at plan/apply time. You never write a backend block in any module. The root config handles it for everyone.
 
-The `generate` block auto-creates a `backend.tf` file in each component directory at runtime. You never have to write backend configuration by hand in any module. Every child that includes `root.hcl` gets remote state for free.
+The state key uses `path_relative_to_include()`, which returns the path from the root to the current component. For `environments/dev/vpc`, the key becomes `environments/dev/vpc/terraform.tfstate`. Every component gets its own isolated state file without any manual configuration.
 
-The `env` local parses the environment name directly from the directory path. When you are inside `environments/dev/vpc`, `path_parts[1]` is `dev`. Add a `staging` or `prod` folder later and it picks up automatically.
+The `env` local is parsed directly from the path: `path_parts[1]` is `dev` when you are inside `environments/dev/`. When you add a `staging` or `prod` folder later, it picks up automatically.
 
 ---
 
-## Environment Variables
+## Environment Config
 
-Each environment has an `env.hcl` file that holds the values specific to that environment: networking config, node sizing, anything that changes between dev and prod.
+Each environment has an `env.hcl` that holds values specific to that environment: network ranges, node sizes, anything that differs between dev and prod.
 
 ```hcl
 # environments/dev/env.hcl
@@ -124,7 +168,7 @@ locals {
 }
 ```
 
-Components that need these values read them with `read_terragrunt_config`:
+Components read this file using `read_terragrunt_config`:
 
 ```hcl
 locals {
@@ -132,13 +176,13 @@ locals {
 }
 ```
 
-Then reference them as `local.env_vars.locals.vpc_cidr`. There are no `.tfvars` files anywhere in this setup. All configuration flows through `.hcl` files, which means it is all in one place and you can see exactly what each environment uses without hunting around.
+Then reference values as `local.env_vars.locals.vpc_cidr`. There are no `.tfvars` files anywhere in this setup. All configuration is in `.hcl` files, which keeps everything in one place and makes it obvious what changes between environments.
 
 ---
 
 ## A Component Config
 
-Here is the VPC component as an example of what every `terragrunt.hcl` looks like:
+Every component follows the same pattern. Here is what one looks like:
 
 ```hcl
 locals {
@@ -171,13 +215,15 @@ inputs = {
 }
 ```
 
-Three things are happening here. The `include "root"` block pulls in remote state config and exposes the locals so you can reference `include.root.locals.project`. The `terraform.source` points at the module. The `inputs` block passes everything the module needs. That is the full pattern for every component.
+The `include "root"` block pulls in remote state and exposes the locals from `root.hcl`. The `expose = true` is what lets you reference `include.root.locals.project` directly in inputs. The `terraform.source` points at the module. The `inputs` block passes everything down.
+
+That is the full pattern. Every component in `environments/dev/` looks like this.
 
 ---
 
 ## Dependency Chaining
 
-This is where Terragrunt really earns its place. The EKS cluster needs subnet IDs from the VPC. Instead of hardcoding them or using data sources, you declare a dependency:
+This is where Terragrunt saves the most time. Components share outputs with each other through `dependency` blocks instead of data sources or hardcoded values.
 
 ```hcl
 dependency "vpc" {
@@ -189,25 +235,22 @@ dependency "vpc" {
   }
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
-```
 
-Then use the output directly as an input:
-
-```hcl
 inputs = {
   public_subnet_ids  = dependency.vpc.outputs.public_subnet_ids
   private_subnet_ids = dependency.vpc.outputs.private_subnet_ids
 }
 ```
 
-The mock outputs are what makes this practical. When you run `terragrunt plan` on the EKS cluster before the VPC is deployed, Terragrunt uses the mock values instead of failing. Real values are used when the VPC state actually exists. This means you can validate your configs and run CI checks before anything is provisioned.
+Terragrunt reads the remote state of the VPC component and injects its outputs directly as inputs to the EKS component. No data sources, no manual copying of IDs.
 
-The IAM component has two dependencies, which is a common pattern when a module needs outputs from multiple components:
+The mock outputs are important. When you run `terragrunt plan` on a component before its dependencies are deployed, Terragrunt uses the mock values instead of failing. This lets you validate configs and run CI checks without having real infrastructure in place.
+
+A component can have multiple dependencies. The IAM component depends on both the EKS cluster (for the OIDC provider ARN) and the secrets component (for the KMS key ARN):
 
 ```hcl
 dependency "eks_cluster" {
   config_path = "../eks-cluster"
-
   mock_outputs = {
     oidc_provider_arn = "arn:aws:iam::123456789012:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/MOCK"
     oidc_provider_url = "oidc.eks.us-east-1.amazonaws.com/id/MOCK"
@@ -217,7 +260,6 @@ dependency "eks_cluster" {
 
 dependency "secrets" {
   config_path = "../secrets"
-
   mock_outputs = {
     kms_key_arn = "arn:aws:kms:us-east-1:123456789012:key/mock-key-id"
   }
@@ -227,9 +269,15 @@ dependency "secrets" {
 
 ---
 
-## The Deployment Order
+## Deployment Order
 
-The dependency graph naturally defines the order components need to be deployed:
+The dependency declarations form a graph. Terragrunt resolves it automatically when you run:
+
+```bash
+terragrunt run-all apply
+```
+
+From the `dev/` folder, it figures out the order itself:
 
 ```
 secrets ──────────────────────┐
@@ -239,74 +287,42 @@ vpc ──────────> eks-cluster ──> iam
                     ▼
               eks-addons
 
-ecr  (independent)
+ecr  (independent, runs in parallel)
 ```
 
-1. **VPC** and **secrets** first, no dependencies
-2. **EKS cluster** needs VPC subnets
-3. **IAM** needs the OIDC provider from EKS and the KMS key from secrets
-4. **EKS addons** needs the cluster endpoint and credentials
-5. **ECR** is fully independent, can go any time
+Components with no dependencies run first, in parallel if possible. Components with dependencies wait for their dependencies to complete. You do not have to think about order.
 
-You can run `terragrunt run-all apply` from the `dev/` folder and Terragrunt figures out this order automatically from the dependency declarations.
+You can also target a single component:
 
----
+```bash
+cd environments/dev/eks-cluster
+terragrunt apply
+```
 
-## IRSA: IAM Roles for Service Accounts
-
-The IAM module is worth calling out specifically because the pattern it implements, IRSA (IAM Roles for Service Accounts), is how you give Kubernetes workloads AWS permissions without managing static credentials.
-
-The idea is that the EKS cluster has an OIDC provider attached to it. Each IAM role has a trust policy that allows a specific Kubernetes service account to assume it. That service account is then annotated in your workload, and AWS handles the credential exchange.
-
-The IAM module creates five roles this way:
-
-- **External Secrets Operator** -- reads from Secrets Manager and KMS, used to sync secrets into the cluster
-- **Jenkins** -- ECR access and EKS describe, used by CI pipelines running inside the cluster
-- **Cluster Autoscaler** -- reads and modifies Auto Scaling Groups to scale nodes
-- **EBS CSI Driver** -- manages EBS volumes for persistent storage
-- **AWS Load Balancer Controller** -- manages ALB and security groups for ingress
-
-Each trust policy scope is tight. The External Secrets role can only be assumed by the `external-secrets` service account in the `external-secrets` namespace. Jenkins can only be assumed by the `jenkins` service account in the `jenkins` namespace. No service account can assume a role it was not explicitly granted.
-
-This is what secure-by-design looks like in practice. No access keys, no shared credentials, no overly broad policies.
-
----
-
-## Secrets
-
-The secrets module creates two things:
-
-- A KMS key with rotation enabled, aliased as `k8s-gitops-dev-secrets`
-- Secrets Manager entries for database credentials, namespaced as `/{project}/{environment}/redis/password` and `/{project}/{environment}/mongodb/credentials`
-
-The KMS key ARN is passed to the IAM module as a dependency output, so the External Secrets Operator role gets exactly the decrypt permission it needs for that specific key.
-
-Inside the cluster, External Secrets Operator reads from Secrets Manager using its IRSA role and creates Kubernetes secrets. Application pods mount those secrets as environment variables or volumes. No secret ever lives in the codebase or in a `.tfvars` file.
-
----
-
-## ECR Lifecycle Policies
-
-ECR can fill up fast if you are not careful. The ECR module sets lifecycle policies on both repositories:
-
-- Untagged images are deleted after 1 day
-- Tagged images are kept up to 10, covering prefixes: `sha`, `dev`, `staging`, `prod`
-
-This keeps storage costs down and ensures old images do not accumulate. The tagging convention also maps directly to the environments, so it is easy to trace which image is running where.
+Terragrunt applies only that component, but resolves dependency outputs from existing state automatically.
 
 ---
 
 ## Adding a New Environment
 
-To add a `staging` environment, you copy the `dev/` folder, rename it to `staging/`, update `env.hcl` with staging-appropriate values (larger nodes, different CIDR ranges), and you are done. The `root.hcl` picks up `staging` automatically from the path. State files land in their own prefix in S3. No other files need to change.
+To add `staging`, copy the `dev/` folder, rename it, and update `env.hcl` with staging values: larger nodes, different CIDR ranges, whatever is appropriate.
 
-That is the actual value of this structure. The first environment takes time to set up. Every environment after that is a folder copy and a few variable changes.
+```
+environments/
+├── dev/
+│   └── env.hcl   # t3.medium, min 1 node
+└── staging/
+    └── env.hcl   # t3.large, min 2 nodes
+```
+
+The `root.hcl` picks up `staging` automatically from the path. State files land under `environments/staging/` in S3. No other files need to change.
+
+The first environment takes time to set up properly. Every environment after that is a folder copy and a few variable changes.
 
 ---
 
 ## Further Reading
 
 - [Terragrunt documentation](https://terragrunt.gruntwork.io/docs/)
-- [IRSA on EKS](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
-- [External Secrets Operator](https://external-secrets.io/)
-- [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/)
+- [GitHub Actions OIDC with AWS](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+- [Terraform S3 native state locking](https://developer.hashicorp.com/terraform/language/backend/s3)
