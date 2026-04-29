@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "event": "AWS Summit Toronto 2025",
+      "title": "Building Resilient Infrastructure on AWS",
+      "date": "2025",
+      "location": "Toronto, ON, Canada",
+      "description": "A talk at AWS Summit Toronto on building resilient and cost-efficient AWS infrastructure at scale.",
+      "link": "",
+      "photo": ""
+    },
+    {
+      "event": "AWS User Group Toronto",
+      "title": "DevOps Practices for Cloud-Native Teams",
+      "date": "2025",
+      "location": "Toronto, ON, Canada",
+      "description": "A session at the AWS User Group Toronto covering modern DevOps workflows and cloud-native best practices.",
+      "link": "",
+      "photo": ""
+    }
+  ]
+}

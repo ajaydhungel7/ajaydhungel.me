@@ -11,6 +11,8 @@ menu:
           url: blog/
         - name: Blogs
           url: posts/
+        - name: Talks
+          url: talks/
         - name: About
           url: about/
         - name: Certifications

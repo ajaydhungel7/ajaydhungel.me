@@ -1,0 +1,30 @@
+{{- $items := site.Data.talks.items -}}
+{{- if $items -}}
+<div class="talks-grid">
+  {{- range $items -}}
+  <div class="talk-card">
+    {{- if .photo -}}
+    <div class="talk-photo">
+      <img src="{{ .photo }}" alt="{{ .event }}" loading="lazy">
+    </div>
+    {{- end -}}
+    <div class="talk-content">
+      <h3 class="talk-title">{{ .title }}</h3>
+      <p class="talk-event">{{ .event }}</p>
+      <div class="talk-meta">
+        {{- if .date -}}<span>{{ .date }}</span>{{- end -}}
+        {{- if .location -}}<span>{{ .location }}</span>{{- end -}}
+      </div>
+      {{- if .description -}}
+      <p class="talk-description">{{ .description }}</p>
+      {{- end -}}
+      {{- if .link -}}
+      <a class="talk-link" href="{{ .link }}" target="_blank" rel="noopener noreferrer">View slides / recording &rarr;</a>
+      {{- end -}}
+    </div>
+  </div>
+  {{- end -}}
+</div>
+{{- else -}}
+<p class="talks-error">No talks to show right now.</p>
+{{- end -}}
