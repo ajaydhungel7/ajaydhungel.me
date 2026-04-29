@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "event": "AWS Summit Toronto 2026",
+      "title": "Building a Personal AI Assistant in Minutes with OpenClaw",
+      "date": "June 3, 2026",
+      "location": "Toronto, ON, Canada",
+      "description": "An upcoming talk at AWS Summit Toronto 2026 on building a personal AI assistant quickly using OpenClaw.",
+      "slides": "",
+      "link": "",
+      "photo": ""
+    },
+    {
       "event": "AWS Summit Toronto 2025",
       "title": "Multi-Agent Collaboration in Amazon Bedrock Using Terraform",
       "date": "September 4, 2025",
