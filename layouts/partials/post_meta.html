@@ -24,15 +24,13 @@
 {{- with .Params.tech }}
 {{- $icons := dict
   "kubernetes"     "kubernetes"
-  "aws"            "amazonwebservices"
+  "aws"            "aws"
   "terraform"      "terraform"
-  "terragrunt"     "terraform"
   "github-actions" "githubactions"
   "nginx"          "nginx"
   "networking"     "cloudflare"
   "docker"         "docker"
   "devops"         "ansible"
-  "iac"            "terraform"
 }}
 <span class="tech-icons">
   {{- range . }}
