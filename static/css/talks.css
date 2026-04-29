@@ -126,8 +126,3 @@
   opacity: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  .tech-icon {
-    filter: invert(1);
-  }
-}
