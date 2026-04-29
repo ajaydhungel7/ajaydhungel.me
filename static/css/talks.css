@@ -77,9 +77,14 @@
   line-height: 1.5;
 }
 
-.talk-link {
-  display: inline-block;
+.talk-links {
+  display: flex;
+  gap: 16px;
   margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.talk-link {
   font-size: 0.85rem;
   color: var(--primary);
   text-decoration: none;

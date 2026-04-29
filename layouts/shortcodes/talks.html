@@ -18,9 +18,14 @@
       {{- if .description -}}
       <p class="talk-description">{{ .description }}</p>
       {{- end -}}
-      {{- if .link -}}
-      <a class="talk-link" href="{{ .link }}" target="_blank" rel="noopener noreferrer">View slides / recording &rarr;</a>
-      {{- end -}}
+      <div class="talk-links">
+        {{- if .slides -}}
+        <a class="talk-link" href="{{ .slides }}" download>Download slides &darr;</a>
+        {{- end -}}
+        {{- if .link -}}
+        <a class="talk-link" href="{{ .link }}" target="_blank" rel="noopener noreferrer">Event page &rarr;</a>
+        {{- end -}}
+      </div>
     </div>
   </div>
   {{- end -}}

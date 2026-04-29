@@ -6,6 +6,7 @@
       "date": "September 4, 2025",
       "location": "Toronto, ON, Canada",
       "description": "Presented Multi-Agent Collaboration in Amazon Bedrock at AWS Summit Toronto, covering how to design and deploy multi-agent systems with all infrastructure provisioned using Terraform.",
+      "slides": "/slides/orchestrating-bedrock-agents.pptx",
       "link": "",
       "photo": "/imgs/talk-aws-summit-toronto.png"
     },
@@ -15,6 +16,7 @@
       "date": "May 8, 2025",
       "location": "Toronto, ON, Canada",
       "description": "Shared my experience with the AWS New Voices Program and walked through building Multi-Agent Collaboration in Amazon Bedrock, with all infrastructure provisioned using Terraform.",
+      "slides": "/slides/orchestrating-bedrock-agents.pptx",
       "link": "https://www.meetup.com/aws-ug-toronto/events/307499391/?eventOrigin=group_events_list",
       "photo": "/imgs/talk-aws-ug-toronto.jpeg"
     }
