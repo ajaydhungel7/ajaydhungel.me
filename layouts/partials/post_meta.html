@@ -24,7 +24,7 @@
 {{- with .Params.tech }}
 {{- $icons := dict
   "kubernetes"     "kubernetes"
-  "aws"            "amazonwebservices"
+  "aws"            ""
   "terraform"      "terraform"
   "github-actions" "githubactions"
   "nginx"          "nginx"
@@ -35,7 +35,8 @@
 <span class="tech-icons">
   {{- range . }}
   {{- $slug := index $icons . }}
-  {{- if $slug }}<img class="tech-icon" src="https://cdn.simpleicons.org/{{ $slug }}" title="{{ . }}" alt="{{ . }}" loading="lazy">{{ end }}
+  {{- if eq . "aws" }}<img class="tech-icon" src="/icons/aws.svg" title="aws" alt="aws" loading="lazy">
+  {{- else if $slug }}<img class="tech-icon" src="https://cdn.simpleicons.org/{{ $slug }}" title="{{ . }}" alt="{{ . }}" loading="lazy">{{ end }}
   {{- end }}
 </span>
 {{- end -}}
