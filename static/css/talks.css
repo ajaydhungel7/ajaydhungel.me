@@ -114,11 +114,12 @@
 }
 
 .tech-icon {
-  width: 0.85em;
-  height: 0.85em;
+  height: 1em;
+  width: auto;
   object-fit: contain;
   opacity: 0.75;
   transition: opacity 0.2s ease;
+  vertical-align: middle;
 }
 
 .tech-icon:hover {
