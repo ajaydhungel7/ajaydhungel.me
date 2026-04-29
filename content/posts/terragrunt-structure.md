@@ -13,11 +13,13 @@ ShowBreadCrumbs: true
 
 ## Introduction
 
-Terraform gets messy fast. A single `main.tf` works fine for a few resources. The moment you have multiple components that depend on each other, multiple environments, and a team sharing state, things start to break down.
+I first learned this setup back in 2022 at Genese Solution in Kathmandu. We were working toward the AWS DevOps Competency, which meant managing infrastructure across multiple client workloads, each with their own environments, their own state, and their own quirks. My mentors there, Dipendra Dangal, Pawan Chaulagain, and Sunit Khadgi, had already figured out the hard way that plain Terraform at that scale was painful.
 
-Terragrunt is a thin wrapper around Terraform that solves three specific problems: keeping your configuration DRY, managing remote state without repeating backend blocks everywhere, and wiring up dependencies between components so they share outputs cleanly.
+The specific problem was Terraform workspaces. In theory, workspaces let you reuse the same configuration across environments by switching context. In practice, they are unreliable. State gets shared in ways that are hard to reason about, the workspace name leaks into your config in awkward ways, and the moment something goes wrong you are debugging which workspace you are actually in. We tried it, it caused problems on client workloads, and we moved away from it.
 
-This is how I structure it on real projects.
+The alternative we landed on was Terragrunt. It treats each environment and each component as a completely independent unit with its own state file, while still letting you share configuration and wire components together cleanly. That structure has stayed with me since and it is what I reach for on every project now.
+
+This post walks through how I set it up.
 
 ---
 
