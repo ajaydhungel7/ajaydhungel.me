@@ -5,6 +5,7 @@ draft: false
 author: Ajay Dhungel
 description: "A walkthrough of how I structure Terragrunt for real projects, covering bootstrapping with CloudFormation, remote state, environment configs, and dependency chaining."
 tags: ["terraform", "terragrunt", "aws", "devops", "iac", "github-actions"]
+tech: ["terraform", "terragrunt", "aws", "github-actions", "iac"]
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true

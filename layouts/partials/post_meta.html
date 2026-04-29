@@ -20,3 +20,24 @@
 {{- with ($scratch.Get "meta") }}
 {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
 {{- end -}}
+
+{{- with .Params.tech }}
+{{- $icons := dict
+  "kubernetes"     "kubernetes"
+  "aws"            "amazonaws"
+  "terraform"      "terraform"
+  "terragrunt"     "terraform"
+  "github-actions" "githubactions"
+  "nginx"          "nginx"
+  "networking"     "cloudflare"
+  "docker"         "docker"
+  "devops"         "ansible"
+  "iac"            "terraform"
+}}
+<span class="tech-icons">
+  {{- range . }}
+  {{- $slug := index $icons . }}
+  {{- if $slug }}<img class="tech-icon" src="https://cdn.simpleicons.org/{{ $slug }}" title="{{ . }}" alt="{{ . }}" loading="lazy">{{ end }}
+  {{- end }}
+</span>
+{{- end -}}

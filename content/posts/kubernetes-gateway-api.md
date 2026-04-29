@@ -5,6 +5,7 @@ draft: false
 author: Ajay Dhungel
 description: "A deep dive into the Kubernetes Gateway API, what problems it solves over Ingress, real YAML examples using Nginx, AWS ALB, and the AWS Gateway API controller, plus what just landed in v1.5."
 tags: ["kubernetes", "networking", "gateway-api", "aws", "devops"]
+tech: ["kubernetes", "aws", "networking", "nginx"]
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true

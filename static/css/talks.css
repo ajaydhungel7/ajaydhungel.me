@@ -104,3 +104,29 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Tech icons in post cards */
+.tech-icons {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.tech-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.tech-icon:hover {
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tech-icon {
+    filter: invert(1);
+  }
+}
