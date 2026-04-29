@@ -275,7 +275,7 @@ dependency "secrets" {
 The dependency declarations form a graph. Terragrunt resolves it automatically when you run:
 
 ```bash
-terragrunt run-all apply
+terragrunt run --all apply
 ```
 
 From the `dev/` folder, it figures out the order itself:
@@ -293,11 +293,13 @@ ecr  (independent, runs in parallel)
 
 Components with no dependencies run first, in parallel if possible. Components with dependencies wait for their dependencies to complete. You do not have to think about order.
 
+![Terragrunt resolving execution order from dependency declarations](/imgs/terragrunt-run-all-plan.png)
+
 You can also target a single component:
 
 ```bash
 cd environments/dev/eks-cluster
-terragrunt apply
+terragrunt run apply
 ```
 
 Terragrunt applies only that component, but resolves dependency outputs from existing state automatically.
