@@ -9,6 +9,9 @@ tech: ["kubernetes", "aws", "networking", "nginx"]
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true
+cover:
+  image: /imgs/gateway-api-cover.png
+  alt: Kubernetes Gateway API
 ---
 
 ## Introduction
