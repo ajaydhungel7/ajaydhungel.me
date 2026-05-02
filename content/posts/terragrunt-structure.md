@@ -1,4 +1,4 @@
-a---
+---
 title: "How I Structure My Terragrunt Setup"
 date: 2026-04-29
 draft: false
