@@ -7,7 +7,7 @@ description: "How I use Terraform to provision EKS and hand off to ArgoCD, so th
 tags: ["kubernetes", "terraform", "argocd", "aws", "devops", "gitops", "eks"]
 tech: ["kubernetes", "terraform", "aws", "github-actions"]
 cover:
-  image: /imgs/terraform-argocd-cover.png
+  image: /imgs/post-003.png
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true

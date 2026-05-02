@@ -10,7 +10,7 @@ ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true
 cover:
-  image: /imgs/gateway-api-cover.png
+  image: /imgs/post-001.png
   alt: Kubernetes Gateway API
 ---
 
