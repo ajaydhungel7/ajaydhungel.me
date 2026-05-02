@@ -70,6 +70,7 @@ params:
 
 
 
+buildFuture: true
 enableInlineShortcodes: true
 enableRobotsTXT: true
 enableEmoji: true
