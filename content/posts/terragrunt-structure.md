@@ -1,28 +1,23 @@
----
+a---
 title: "How I Structure My Terragrunt Setup"
 date: 2026-04-29
 draft: false
 author: Ajay Dhungel
 description: "A walkthrough of how I structure Terragrunt for real projects, covering bootstrapping with CloudFormation, remote state, environment configs, and dependency chaining."
 tags: ["terraform", "terragrunt", "aws", "devops", "iac", "github-actions"]
-tech: ["terraform", "aws", "github-actions"]
+tech: ["terraform", "terragrunt", "aws", "github-actions", "iac"]
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true
-cover:
-  image: /imgs/terraform-terragrunt.png
-  alt: Terraform and Terragrunt
 ---
 
 ## Introduction
 
-I first learned this setup back in 2022 at Genese Solution in Kathmandu. We were working toward the AWS DevOps Competency, which meant managing infrastructure across multiple client workloads, each with their own environments, their own state, and their own quirks. My mentors there, Dipendra Dangal, Pawan Chaulagain, and Sunit Khadgi, had already figured out the hard way that plain Terraform at that scale was painful.
+Terraform gets messy fast. A single `main.tf` works fine for a few resources. The moment you have multiple components that depend on each other, multiple environments, and a team sharing state, things start to break down.
 
-The specific problem was Terraform workspaces. In theory, workspaces let you reuse the same configuration across environments by switching context. In practice, they are unreliable. State gets shared in ways that are hard to reason about, the workspace name leaks into your config in awkward ways, and the moment something goes wrong you are debugging which workspace you are actually in. We tried it, it caused problems on client workloads, and we moved away from it.
+Terragrunt is a thin wrapper around Terraform that solves three specific problems: keeping your configuration DRY, managing remote state without repeating backend blocks everywhere, and wiring up dependencies between components so they share outputs cleanly.
 
-The alternative we landed on was Terragrunt. It treats each environment and each component as a completely independent unit with its own state file, while still letting you share configuration and wire components together cleanly. That structure has stayed with me since and it is what I reach for on every project now.
-
-This post walks through how I set it up.
+This is how I structure it on real projects.
 
 ---
 
@@ -280,7 +275,7 @@ dependency "secrets" {
 The dependency declarations form a graph. Terragrunt resolves it automatically when you run:
 
 ```bash
-terragrunt run --all apply
+terragrunt run-all apply
 ```
 
 From the `dev/` folder, it figures out the order itself:
@@ -298,13 +293,11 @@ ecr  (independent, runs in parallel)
 
 Components with no dependencies run first, in parallel if possible. Components with dependencies wait for their dependencies to complete. You do not have to think about order.
 
-![Terragrunt resolving execution order from dependency declarations](/imgs/terragrunt-run-all-plan.png)
-
 You can also target a single component:
 
 ```bash
 cd environments/dev/eks-cluster
-terragrunt run apply
+terragrunt apply
 ```
 
 Terragrunt applies only that component, but resolves dependency outputs from existing state automatically.
