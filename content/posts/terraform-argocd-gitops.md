@@ -89,7 +89,80 @@ resource "null_resource" "argocd_root_app" {
 }
 ```
 
-The `depends_on` ensures the `local-exec` only runs after the Helm release is complete. The `kubectl wait` then blocks until the `argocd-server` deployment is actually available, not just installed. Only then does it apply the root app. This is the part that was previously a manual step -- you had to run the `kubectl apply` yourself after Terraform finished. Now it happens automatically as part of the same apply.
+The `depends_on` ensures the `local-exec` only runs after the Helm release is complete. Rather than running raw `kubectl` commands in a shell script, the `local-exec` calls an Ansible playbook. Ansible has proper modules for Kubernetes that handle waiting for readiness natively, making this much cleaner and easier to read than shell hacks.
+
+```hcl
+resource "null_resource" "argocd_root_app" {
+  depends_on = [helm_release.argocd]
+
+  provisioner "local-exec" {
+    interpreter = ["/bin/bash", "-c"]
+    command     = <<-EOT
+      CA_CERT_FILE=$(mktemp /tmp/eks-ca-XXXXXX.crt)
+      echo "${var.cluster_ca_certificate}" | base64 -d > "$CA_CERT_FILE"
+
+      ansible-playbook "${var.repo_root}/ansible/argocd-bootstrap.yml" \
+        -e "cluster_endpoint=${var.cluster_endpoint}" \
+        -e "cluster_ca_cert_path=$CA_CERT_FILE" \
+        -e "cluster_token=${data.aws_eks_cluster_auth.main.token}" \
+        -e "env=${var.environment}"
+
+      rm -f "$CA_CERT_FILE"
+    EOT
+  }
+}
+```
+
+The CA cert is written to a temp file because Ansible's Kubernetes modules expect a file path rather than a raw string. It gets cleaned up immediately after the playbook finishes.
+
+### The Ansible playbook
+
+The playbook lives in `ansible/argocd-bootstrap.yml` and does two things: waits for the ArgoCD server deployment to be healthy, then applies the root app manifest.
+
+```yaml
+- name: Bootstrap ArgoCD root application
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Wait for ArgoCD server deployment to be available
+      kubernetes.core.k8s_info:
+        api_version: apps/v1
+        kind: Deployment
+        name: argocd-server
+        namespace: argocd
+        host: "{{ cluster_endpoint }}"
+        ca_cert: "{{ cluster_ca_cert_path }}"
+        api_key: "{{ cluster_token }}"
+        wait: true
+        wait_condition:
+          type: Available
+          status: "True"
+        wait_timeout: 180
+
+    - name: Apply ArgoCD root application
+      kubernetes.core.k8s:
+        state: present
+        src: "{{ repo_root }}/argocd/bootstrap/root-app-{{ environment }}.yaml"
+        host: "{{ cluster_endpoint }}"
+        ca_cert: "{{ cluster_ca_cert_path }}"
+        api_key: "{{ cluster_token }}"
+```
+
+The `kubernetes.core.k8s_info` module blocks until the `Available` condition is true or the timeout is hit. Only after that does the `k8s` module apply the root app. No polling loops, no sleep commands, no guessing.
+
+Before running, install the required Ansible collection:
+
+```bash
+ansible-galaxy collection install -r ansible/requirements.yml
+```
+
+### How the playbook gets cluster permissions
+
+The playbook runs on the same machine as Terraform -- your laptop or the GitHub Actions runner. It does not use a kubeconfig file. The cluster endpoint, CA cert, and token are passed directly as variables.
+
+The token comes from `data.aws_eks_cluster_auth`, which exchanges your current IAM identity for a short-lived Kubernetes bearer token. Whoever is running Terraform needs `eks:DescribeCluster` permission and needs to be authorized in the cluster's access entries. The GitHub Actions role created by the CloudFormation bootstrap already has both.
 
 ---
 
@@ -182,6 +255,72 @@ workloadApplications:
 ```
 
 To add a new component to the cluster, you add an entry to this file and push. ArgoCD picks it up and deploys it. To remove something, you delete the entry. ArgoCD prunes it. The file is the complete description of what should be running.
+
+---
+
+## How the Helm Template Generates Applications
+
+The `argocd/apps` directory is a Helm chart. Its single template iterates over the `platformApplications` and `workloadApplications` lists from the values file and renders one ArgoCD `Application` CRD per entry:
+
+```yaml
+{{- $defaults := dict "project" .Values.project "destinationServer" .Values.destinationServer -}}
+{{- $applications := concat .Values.platformApplications .Values.workloadApplications -}}
+{{- range $app := $applications }}
+{{- $spec := mergeOverwrite (deepCopy $defaults) $app -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $spec.name }}
+  namespace: argocd
+  {{- if $spec.syncWave }}
+  annotations:
+    argocd.argoproj.io/sync-wave: {{ $spec.syncWave | quote }}
+  {{- end }}
+spec:
+  project: {{ $spec.project }}
+  source:
+    {{- if $spec.source.repoURL }}
+    repoURL: {{ $spec.source.repoURL }}
+    {{- end }}
+    {{- if $spec.source.chart }}
+    chart: {{ $spec.source.chart }}
+    {{- end }}
+    {{- if $spec.source.path }}
+    path: {{ $spec.source.path }}
+    {{- end }}
+    targetRevision: {{ default $.Values.targetRevision $spec.source.targetRevision }}
+    {{- with $spec.source.helm }}
+    helm:
+      {{- with .releaseName }}
+      releaseName: {{ . }}
+      {{- end }}
+      {{- with .valueFiles }}
+      valueFiles:
+        {{- range . }}
+        - {{ . }}
+        {{- end }}
+      {{- end }}
+      {{- with .values }}
+      values: |
+{{ . | indent 8 }}
+      {{- end }}
+    {{- end }}
+  destination:
+    server: {{ $spec.destinationServer }}
+    namespace: {{ $spec.namespace }}
+  syncPolicy:
+    {{- if $spec.syncPolicy }}
+{{ toYaml $spec.syncPolicy | indent 4 }}
+    {{- end }}
+    syncOptions:
+      - CreateNamespace={{ ternary "true" "false" (default false $spec.createNamespace) }}
+---
+{{- end }}
+```
+
+A few things worth noting here. The `mergeOverwrite` call merges each app entry on top of the shared defaults, so you only need to specify what is different per app. The `syncWave` annotation is only rendered if the field is set -- apps without a wave get no annotation and ArgoCD treats them as wave 0. The `ternary` on `CreateNamespace` means you can control namespace creation per app with a simple boolean in `values-dev.yaml` rather than repeating the sync option everywhere.
+
+When ArgoCD syncs the root app, it runs this template against `values-dev.yaml` and gets back a list of fully formed `Application` CRDs -- one per platform component, one per workload. ArgoCD then reconciles all of them. Adding a new service to the cluster is as simple as adding an entry to the values file and pushing.
 
 ---
 
