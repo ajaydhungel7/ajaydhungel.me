@@ -47,7 +47,8 @@ jobs:
       - name: Fetch GitHub projects
         run: |
           mkdir -p data
-          python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json
+          python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json \
+            --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana
 
       - name: Build Hugo site
         run: hugo --environment production

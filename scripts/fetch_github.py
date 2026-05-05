@@ -32,14 +32,15 @@ def iso_date(raw):
         return raw
 
 
-def build_items(repos, limit):
+def build_items(repos, limit, pinned):
     items = []
     for repo in repos:
         if repo.get("fork") or repo.get("archived"):
             continue
+        name = repo.get("name", "")
         items.append(
             {
-                "name": repo.get("name", ""),
+                "name": name,
                 "description": repo.get("description") or "",
                 "url": repo.get("html_url", ""),
                 "stars": repo.get("stargazers_count", 0),
@@ -48,10 +49,16 @@ def build_items(repos, limit):
                 "topics": repo.get("topics", []),
                 "updatedAt": format_date(repo.get("updated_at", "")),
                 "updatedAtRaw": iso_date(repo.get("updated_at", "")),
+                "pinned": name in pinned,
             }
         )
 
-    items.sort(key=lambda r: (-r["stars"], r["updatedAtRaw"]), reverse=False)
+    # Pinned repos first (in declared order), then by stars descending
+    pin_order = {name: i for i, name in enumerate(pinned)}
+    items.sort(key=lambda r: (
+        pin_order.get(r["name"], len(pinned) + 1),
+        -r["stars"],
+    ))
     return items[:limit]
 
 
@@ -60,11 +67,13 @@ def main():
     parser.add_argument("--user", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--limit", type=int, default=12)
+    parser.add_argument("--pin", nargs="*", default=[], metavar="REPO",
+                        help="Repo names to pin at the top, in order")
     args = parser.parse_args()
 
     url = f"https://api.github.com/users/{args.user}/repos?sort=updated&per_page=100&type=owner"
     repos = fetch_json(url)
-    items = build_items(repos, args.limit)
+    items = build_items(repos, args.limit, pinned=args.pin)
 
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump({"items": items}, f, ensure_ascii=True, indent=2)
