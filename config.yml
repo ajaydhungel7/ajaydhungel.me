@@ -13,6 +13,8 @@ menu:
           url: posts/
         - name: Talks
           url: talks/
+        - name: Projects
+          url: projects/
         - name: About
           url: about/
         - name: Certifications

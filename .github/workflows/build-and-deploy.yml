@@ -44,6 +44,11 @@ jobs:
           print(f"Credly badges: {len(data.get('items', []))}")
           PY
 
+      - name: Fetch GitHub projects
+        run: |
+          mkdir -p data
+          python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json
+
       - name: Build Hugo site
         run: hugo --environment production
 

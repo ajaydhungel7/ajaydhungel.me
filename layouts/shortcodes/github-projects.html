@@ -1,0 +1,40 @@
+{{- $items := site.Data.github.items -}}
+{{- if $items -}}
+<div class="github-grid">
+  {{- range $items -}}
+  <a class="github-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+    <div class="github-card-header">
+      <span class="github-repo-name">
+        <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        {{ .name }}
+      </span>
+      {{- if .stars -}}
+      <span class="github-stars">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        {{ .stars }}
+      </span>
+      {{- end -}}
+    </div>
+    {{- if .description -}}
+    <p class="github-description">{{ .description }}</p>
+    {{- end -}}
+    <div class="github-meta">
+      {{- if .language -}}
+      <span class="github-language">
+        <span class="github-lang-dot"></span>{{ .language }}
+      </span>
+      {{- end -}}
+      {{- if .topics -}}
+      <div class="github-topics">
+        {{- range .topics -}}
+        <span class="github-topic">{{ . }}</span>
+        {{- end -}}
+      </div>
+      {{- end -}}
+    </div>
+  </a>
+  {{- end -}}
+</div>
+{{- else -}}
+<p class="github-error">No projects to show right now.</p>
+{{- end -}}
