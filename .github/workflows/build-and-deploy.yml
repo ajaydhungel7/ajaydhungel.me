@@ -16,8 +16,26 @@ permissions:
   contents: read
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependencies
+        run: pip install -r requirements-test.txt
+
+      - name: Run unit tests
+        run: pytest tests/unit/ tests/test_infrastructure.py -v -m unit
+
   build-and-deploy:
     runs-on: ubuntu-latest
+    needs: test
 
     steps:
       - name: Checkout code
@@ -28,25 +46,20 @@ jobs:
         with:
           hugo-version: '0.125.0' # Change this if you use a different Hugo version
 
+      - name: Setup data directory
+        run: mkdir -p data
+
       - name: Fetch Medium feed
-        run: |
-          mkdir -p data
-          python3 scripts/fetch_medium.py --username adhungel2 --devto-username ajaydhungel23 --out data/medium.json
+        run: python3 scripts/fetch_medium.py --username adhungel2 --out data/medium.json
+
+      - name: Fetch Dev.to articles
+        run: python3 scripts/fetch_devto.py --username ajaydhungel23 --out data/devto.json
 
       - name: Fetch Credly badges
-        run: |
-          mkdir -p data
-          python3 scripts/fetch_credly.py --user ajay-dhungel.7261bfe6 --out data/credly.json
-          python3 - <<'PY'
-          import json
-          with open('data/credly.json') as f:
-              data = json.load(f)
-          print(f"Credly badges: {len(data.get('items', []))}")
-          PY
+        run: python3 scripts/fetch_credly.py --user ajay-dhungel.7261bfe6 --out data/credly.json
 
       - name: Fetch GitHub projects
         run: |
-          mkdir -p data
           python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json \
             --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana
 
