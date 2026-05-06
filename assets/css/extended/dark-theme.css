@@ -1,0 +1,15 @@
+.dark {
+    --theme: rgb(10, 15, 30);
+    --entry: rgb(16, 24, 48);
+    --primary: rgb(218, 218, 219);
+    --secondary: rgb(155, 156, 157);
+    --tertiary: rgb(28, 38, 70);
+    --content: rgb(196, 196, 197);
+    --hljs-bg: rgb(16, 24, 48);
+    --code-bg: rgb(20, 30, 58);
+    --border: rgb(30, 44, 80);
+}
+
+.dark.list {
+    background: var(--theme);
+}
