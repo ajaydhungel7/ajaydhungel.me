@@ -42,9 +42,9 @@ params:
         imageWidth: 200
         imageHeight: 200
         buttons:
-            #- name: Don't click me
-            # url: https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley
-            
+            - name: Download My Resume
+              url: /Ajay_Dhungel_Resume.pdf
+
     mainSections: []
 
     socialIcons:
@@ -71,6 +71,8 @@ params:
           safari_pinned_tab: "/images/signature.png"
 
 
+
+copyright: "DevOps Engineer | Cloud Infrastructure | AWS"
 
 buildFuture: true
 enableInlineShortcodes: true

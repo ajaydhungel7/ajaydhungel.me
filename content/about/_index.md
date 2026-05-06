@@ -25,7 +25,7 @@ I select the right fit for the problem, keep systems practical, and avoid unnece
 
 ### DevOps Engineer
 **Deskree Technologies Inc.** | Toronto, ON
-*May 2025 - Jan 2026*
+*March 2025 - February 2026*
 - Led AWS platform operations (EKS primary; ECS and Lambda supporting) to deliver 99.9% uptime and cost-efficient production systems.
 - Designed modular Terraform/Terragrunt stacks and Terraform Cloud VCS workflows, cutting config drift by ~80%.
 - Built GitHub Actions CI/CD pipelines for automated builds, tests, and deployments, halving release time.
@@ -51,7 +51,7 @@ I select the right fit for the problem, keep systems practical, and avoid unnece
 
 ## Education
 **Post Graduate Certificate, DevOps for Cloud Computing**
-Lambton College, Toronto | 2024 - 2025
+Lambton College, Toronto | August 2025 | Dean's List, Fall 2025
 
 **Bachelor of Information Management**
 Tribhuvan University, Kathmandu | 2017 - 2022
@@ -79,6 +79,6 @@ Tribhuvan University, Kathmandu | 2017 - 2022
 ## Community & Speaking
 **AWS Community Builders Program**
 - AWS Community Builder since 2023 | [Community Builders Profile](https://builder.aws.com/community/@ajaya)
-- Speaker at AWS Summit Toronto 2025 and AWS User Group Toronto
+- Speaker at AWS Summit Toronto 2025 & 2026, and AWS User Group Toronto
 - ABW Grant recipient 2025; attended re:Invent 2025 in Las Vegas
 - Early access and beta testing for Kiro and Amazon Q
