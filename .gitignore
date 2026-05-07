@@ -1,2 +1,9 @@
 CLAUDE.md
 blog.txt
+public/
+data/
+.venv/
+__pycache__/
+.pytest_cache/
+tasks/
+.vscode/
