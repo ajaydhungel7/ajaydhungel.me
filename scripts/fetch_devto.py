@@ -41,44 +41,41 @@ def iso_date(raw):
 
 def build_items(data):
     items = []
-    for badge in data.get("data", []):
-        if not badge.get("public") or badge.get("state") != "accepted":
-            continue
-        template = badge.get("badge_template", {})
-        badge_id = badge.get("id", "")
-        issued_at_raw = badge.get("issued_at", "")
-        expires_at_raw = badge.get("expires_at", "")
-
+    for item in data:
+        pub_date_raw = item.get("published_at", "")
         items.append(
             {
-                "title": template.get("name", ""),
-                "link": f"https://www.credly.com/badges/{badge_id}",
-                "issuedAt": format_date(issued_at_raw),
-                "issuedAtRaw": iso_date(issued_at_raw),
-                "expiresAt": format_date(expires_at_raw),
-                "thumbnail": template.get("image_url", "") or badge.get("image_url", ""),
-                "source": "Credly",
+                "title": item.get("title", ""),
+                "link": item.get("url", ""),
+                "pubDate": format_date(pub_date_raw),
+                "pubDateRaw": iso_date(pub_date_raw),
+                "thumbnail": item.get("cover_image") or item.get("social_image") or "",
+                "source": "Dev.to",
             }
         )
-    items.sort(key=lambda item: item.get("issuedAtRaw", ""), reverse=True)
+    items.sort(key=lambda item: item.get("pubDateRaw", ""), reverse=True)
     return items
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--user", required=True)
+    parser.add_argument("--username", required=True)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
     try:
-        url = f"https://www.credly.com/users/{args.user}/badges.json"
+        url = f"https://dev.to/api/articles?username={args.username}"
         data = fetch_json(url)
+        if not isinstance(data, list):
+            raise ValueError(f"Expected list from Dev.to API, got {type(data).__name__}")
         items = build_items(data)
 
         with open(args.out, "w", encoding="utf-8") as f:
             json.dump({"items": items}, f, ensure_ascii=True, indent=2)
+
+        print(f"Dev.to articles: {len(items)}")
     except Exception as exc:
-        print(f"Failed to fetch Credly badges: {exc}", file=sys.stderr)
+        print(f"Failed to fetch Dev.to articles: {exc}", file=sys.stderr)
         sys.exit(1)
 
 

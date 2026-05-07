@@ -71,19 +71,21 @@ def main():
                         help="Repo names to pin at the top, in order")
     args = parser.parse_args()
 
-    url = f"https://api.github.com/users/{args.user}/repos?sort=updated&per_page=100&type=owner"
-    repos = fetch_json(url)
-    items = build_items(repos, args.limit, pinned=args.pin)
+    try:
+        url = f"https://api.github.com/users/{args.user}/repos?sort=updated&per_page=100&type=owner"
+        repos = fetch_json(url)
+        if not isinstance(repos, list):
+            raise ValueError(f"Expected list from GitHub API, got {type(repos).__name__}")
+        items = build_items(repos, args.limit, pinned=args.pin)
 
-    with open(args.out, "w", encoding="utf-8") as f:
-        json.dump({"items": items}, f, ensure_ascii=True, indent=2)
+        with open(args.out, "w", encoding="utf-8") as f:
+            json.dump({"items": items}, f, ensure_ascii=True, indent=2)
 
-    print(f"GitHub projects: {len(items)}")
+        print(f"GitHub projects: {len(items)}")
+    except Exception as exc:
+        print(f"Failed to fetch GitHub projects: {exc}", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as exc:
-        print(f"Failed to fetch GitHub projects: {exc}", file=sys.stderr)
-        sys.exit(0)
+    main()

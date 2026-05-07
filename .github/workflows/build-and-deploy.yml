@@ -20,10 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6.0.2
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6.2.0
         with:
           python-version: "3.11"
 
@@ -39,12 +39,20 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6.0.2
+
+      - name: Setup Python
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.11"
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3.0.0
         with:
-          hugo-version: '0.125.0' # Change this if you use a different Hugo version
+          hugo-version: '0.125.0'
+
+      - name: Install test dependencies
+        run: pip install -r requirements-test.txt
 
       - name: Setup data directory
         run: mkdir -p data
@@ -63,18 +71,22 @@ jobs:
           python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json \
             --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana
 
+      - name: Run integration tests
+        run: pytest tests/integration/ -v
+
       - name: Build Hugo site
-        run: hugo --environment production
+        run: hugo --environment production --buildFuture
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6.1.1
         with:
           audience: sts.amazonaws.com
-          role-to-assume: arn:aws:iam::544234170512:role/GithubRole
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Deploy to S3 bucket
         run: |
+          test -f public/index.html || (echo "public/index.html missing — aborting sync" && exit 1)
           aws s3 sync public/ s3://ajaydhungel.me/ --delete
 
       - name: Invalidate CloudFront cache

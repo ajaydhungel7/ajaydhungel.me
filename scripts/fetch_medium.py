@@ -131,54 +131,26 @@ def parse_rss(xml_bytes):
     return items
 
 
-def fetch_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        return json.loads(resp.read().decode("utf-8"))
-
-
-def fetch_devto(username):
-    url = f"https://dev.to/api/articles?username={username}"
-    data = fetch_json(url)
-    items = []
-    for item in data:
-        pub_date_raw = item.get("published_at", "")
-        items.append(
-            {
-                "title": item.get("title", ""),
-                "link": item.get("url", ""),
-                "pubDate": format_date(pub_date_raw),
-                "pubDateRaw": iso_date(pub_date_raw),
-                "thumbnail": item.get("cover_image") or item.get("social_image") or "",
-                "source": "Dev.to",
-            }
-        )
-    return items
-
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--username", required=True)
-    parser.add_argument("--devto-username", required=False)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
-    rss_url = f"https://medium.com/feed/@{args.username}"
-    xml_bytes = fetch_rss(rss_url)
-    items = parse_rss(xml_bytes)
-
-    if args.devto_username:
-        items.extend(fetch_devto(args.devto_username))
-
-    items.sort(key=lambda item: item.get("pubDateRaw", ""), reverse=True)
-
-    with open(args.out, "w", encoding="utf-8") as f:
-        json.dump({"items": items}, f, ensure_ascii=True, indent=2)
-
-
-if __name__ == "__main__":
     try:
-        main()
+        rss_url = f"https://medium.com/feed/@{args.username}"
+        xml_bytes = fetch_rss(rss_url)
+        items = parse_rss(xml_bytes)
+        items.sort(key=lambda item: item.get("pubDateRaw", ""), reverse=True)
+
+        with open(args.out, "w", encoding="utf-8") as f:
+            json.dump({"items": items}, f, ensure_ascii=True, indent=2)
+
+        print(f"Medium articles: {len(items)}")
     except Exception as exc:
         print(f"Failed to fetch Medium feed: {exc}", file=sys.stderr)
         sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
