@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+      - dev
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
   schedule:
     - cron: "0 3 * * *"
@@ -33,7 +37,7 @@ jobs:
       - name: Run unit tests
         run: pytest tests/unit/ tests/test_infrastructure.py -v -m unit
 
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     needs: test
 
@@ -73,6 +77,48 @@ jobs:
 
       - name: Run integration tests
         run: pytest tests/integration/ -v
+
+      - name: Build Hugo site
+        run: hugo --environment production --buildFuture
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6.0.2
+
+      - name: Setup Python
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.11"
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3.0.0
+        with:
+          hugo-version: '0.125.0'
+
+      - name: Install test dependencies
+        run: pip install -r requirements-test.txt
+
+      - name: Setup data directory
+        run: mkdir -p data
+
+      - name: Fetch Medium feed
+        run: python3 scripts/fetch_medium.py --username adhungel2 --out data/medium.json
+
+      - name: Fetch Dev.to articles
+        run: python3 scripts/fetch_devto.py --username ajaydhungel23 --out data/devto.json
+
+      - name: Fetch Credly badges
+        run: python3 scripts/fetch_credly.py --user ajay-dhungel.7261bfe6 --out data/credly.json
+
+      - name: Fetch GitHub projects
+        run: |
+          python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json \
+            --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana
 
       - name: Build Hugo site
         run: hugo --environment production --buildFuture
