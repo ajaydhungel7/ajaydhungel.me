@@ -1,5 +1,5 @@
 ---
-title: "Your Portfolio Should Update Itself"
+title: "I Built a Portfolio Site That Updates Itself Every Night"
 date: 2026-05-07
 draft: false
 author: Ajay Dhungel
