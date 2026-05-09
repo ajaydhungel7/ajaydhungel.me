@@ -8,8 +8,6 @@ theme: charlolamode
 menu:
     main:
         - name: Articles
-          url: blog/
-        - name: Blogs
           url: posts/
         - name: Talks
           url: talks/
