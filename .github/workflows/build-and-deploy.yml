@@ -12,6 +12,10 @@ on:
   schedule:
     - cron: "0 3 * * *"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 env:
   AWS_REGION: us-east-1
 
