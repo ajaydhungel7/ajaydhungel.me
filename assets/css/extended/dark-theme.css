@@ -13,3 +13,63 @@
 .dark.list {
     background: var(--theme);
 }
+
+.nav {
+    position: relative;
+}
+
+#menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#menu li + li {
+    margin-inline-start: 2rem;
+}
+
+#menu a {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 13px;
+    color: var(--primary);
+}
+
+#menu a span {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#menu a:hover span {
+    background: var(--tertiary);
+    color: var(--primary);
+}
+
+#menu a:hover {
+    color: var(--primary);
+}
+
+.logo {
+    margin-inline-start: 0;
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: 800;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    transition: background 0.2s ease;
+}
+
+.logo a:hover {
+    background: var(--tertiary);
+}
+
+@media screen and (max-width: 768px) {
+    #menu {
+        position: static;
+        transform: none;
+    }
+}

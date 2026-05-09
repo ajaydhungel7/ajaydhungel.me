@@ -7,20 +7,24 @@ theme: charlolamode
 
 menu:
     main:
-        - name: Articles
-          url: blog/
-        - name: Blogs
-          url: posts/
-        - name: Talks
-          url: talks/
-        - name: Projects
-          url: projects/
         - name: About
           url: about/
+          weight: 1
+        - name: Articles
+          url: posts/
+          weight: 2
+        - name: Talks
+          url: talks/
+          weight: 3
+        - name: Projects
+          url: projects/
+          weight: 4
         - name: Certifications
           url: certifications/
-        - name: Bookmarks
+          weight: 5
+        - name: Resources
           url: bookmarks/
+          weight: 6
 
 
 
@@ -28,6 +32,8 @@ params:
     author: Ajay Dhungel
     profile-description: Hi, I am Ajay Dhungel. I am a Cloud & DevOps enthusiast.
     defaultTheme: auto
+    label:
+        text: "A"
     #disableThemeToggle: true
     ShowShareButtons: false
     ShowReadingTime: true

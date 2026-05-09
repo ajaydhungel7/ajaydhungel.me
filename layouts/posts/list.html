@@ -1,0 +1,87 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>Articles</h1>
+  <div class="post-description">Everything I have written, in one place.</div>
+</header>
+
+{{- /* Build Hugo posts as normalized items */ -}}
+{{- $hugoItems := slice -}}
+{{- range site.RegularPages -}}
+  {{- if eq .Section "posts" -}}
+    {{- $thumbnail := "" -}}
+    {{- with .Params.cover -}}{{- $thumbnail = .image -}}{{- end -}}
+    {{- $item := dict
+      "title"       .Title
+      "link"        .Permalink
+      "dateRaw"     (.Date.Format "2006-01-02T15:04:05Z")
+      "pubDate"     (.Date.Format "Jan 02, 2006")
+      "description" .Description
+      "thumbnail"   $thumbnail
+      "source"      "Blog"
+      "external"    false
+    -}}
+    {{- $hugoItems = $hugoItems | append $item -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Build external items */ -}}
+{{- $external := slice -}}
+{{- with site.Data.medium -}}
+  {{- range .items -}}
+    {{- $item := dict
+      "title"       .title
+      "link"        .link
+      "dateRaw"     .pubDateRaw
+      "pubDate"     .pubDate
+      "description" ""
+      "thumbnail"   .thumbnail
+      "source"      .source
+      "external"    true
+    -}}
+    {{- $external = $external | append $item -}}
+  {{- end -}}
+{{- end -}}
+{{- with site.Data.devto -}}
+  {{- range .items -}}
+    {{- $item := dict
+      "title"       .title
+      "link"        .link
+      "dateRaw"     .pubDateRaw
+      "pubDate"     .pubDate
+      "description" ""
+      "thumbnail"   .thumbnail
+      "source"      .source
+      "external"    true
+    -}}
+    {{- $external = $external | append $item -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Merge and sort all by date descending */ -}}
+{{- $all := $hugoItems | append $external -}}
+{{- $all = sort $all "dateRaw" "desc" -}}
+
+<div class="writing-grid">
+  {{- range $all }}
+  <a class="writing-card{{ if .external }} writing-card--external{{ end }}" href="{{ .link }}"{{ if .external }} target="_blank" rel="noopener noreferrer"{{ end }}>
+    {{- if .thumbnail }}
+    <div class="writing-card-image">
+      <img src="{{ .thumbnail }}" alt="{{ .title }}" loading="lazy">
+    </div>
+    {{- end }}
+    <div class="writing-card-content">
+      <h2 class="writing-card-title">{{ .title }}</h2>
+      {{- if .description }}
+      <p class="writing-card-description">{{ .description }}</p>
+      {{- end }}
+      <div class="writing-card-meta">
+        {{- if .pubDate }}<span class="writing-card-date">{{ .pubDate }}</span>{{- end }}
+        <span class="writing-card-source">{{ .source }}</span>
+      </div>
+    </div>
+  </a>
+  {{- end }}
+</div>
+
+{{- end }}
