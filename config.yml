@@ -19,7 +19,9 @@ menu:
           url: about/
         - name: Certifications
           url: certifications/
-        
+        - name: Bookmarks
+          url: bookmarks/
+
 
 
 params:
