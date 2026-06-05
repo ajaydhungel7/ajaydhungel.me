@@ -10,7 +10,7 @@ Toronto, ON · (437) 870-6261 · dhungelajay@gmail.com
 ---
 
 ## Summary
-DevOps Engineer with 4+ years delivering secure, scalable AWS infrastructure across SaaS and multi-client environments. Experienced in Terraform, Terragrunt, Kubernetes (EKS), and GitHub Actions CI/CD with a security-first approach. Contributed to AWS DevOps Competency designation as an AWS Partner engineer, with a proven track record of maintaining 99.9% uptime, reducing costs, and aligning infrastructure with compliance and reliability standards.
+DevOps Engineer with 3+ years delivering secure, scalable AWS infrastructure across SaaS and multi-client environments. Experienced in Terraform, Terragrunt, Kubernetes (EKS), and GitHub Actions CI/CD with a security-first approach. Contributed to AWS DevOps Competency designation as an AWS Partner engineer, with a proven track record of maintaining 99.9% uptime, reducing costs, and aligning infrastructure with compliance and reliability standards.
 
 ## Focus Areas
 - **Container Orchestration**: Kubernetes and container platforms management
@@ -26,7 +26,7 @@ DevOps Engineer with 4+ years delivering secure, scalable AWS infrastructure acr
 
 ### DevOps Engineer
 **Deskree Technologies Inc.** | Toronto, ON
-*March 2025 - February 2026*
+*May 2025 - January 2026*
 - Led AWS platform operations (EKS, RDS Aurora, VPC, ALB) to deliver 99.9% uptime and cost-efficient production systems.
 - Built modular Terraform stacks with dev/prod Terraform Cloud workspaces connected to GitHub VCS, automating plan/apply workflows, centralizing secrets via AWS Secrets Manager, and importing untracked resources to bring infrastructure fully under IaC control.
 - Built GitHub Actions CI/CD pipelines for containerized Next.js, TypeScript backend, and Python MCP server services, automating builds, tests, and image delivery to ECR with ArgoCD handling GitOps-based deployments to EKS.
@@ -41,13 +41,6 @@ DevOps Engineer with 4+ years delivering secure, scalable AWS infrastructure acr
 - Automated infrastructure provisioning and microservice deployments for Cross River Bank using Terraform, CloudFormation, CodePipeline, and Jenkins, streamlining release workflows across multiple Lambda-based services.
 - Led 45+ AWS Well-Architected Framework Reviews across multiple client accounts, producing detailed architecture diagrams in Lucidchart and Draw.io to communicate findings and align clients with AWS best practices.
 - Conducted IAM audits and vulnerability assessments across multiple client AWS environments, implementing data protection and security best practices in regulated cloud environments.
-
-### Cloud Engineer | AWS Support
-**Swostech Solutions** | Kathmandu, Nepal
-*April 2021 - March 2022*
-- Supported AWS Well-Architected Framework Reviews and deployed Sendy email platforms on Ubuntu EC2 instances integrated with Amazon SES, maintaining 99.99% EC2 uptime across client environments.
-- Led database migrations to Amazon RDS for multiple clients using AWS SCT and DMS, maintaining continuous replication to ensure zero-downtime cutovers and optimizing post-migration costs through rightsizing.
-- Migrated client workloads to AWS including WordPress sites to Lightsail, web servers to EC2, and application stacks to Elastic Beanstalk, modernizing infrastructure for clients transitioning from on-premise to cloud.
 
 ## Education
 **Post Graduate Certificate, DevOps for Cloud Computing**

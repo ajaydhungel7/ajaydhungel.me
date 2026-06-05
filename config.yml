@@ -49,9 +49,6 @@ params:
         imageTitle: Ajay 
         imageWidth: 200
         imageHeight: 200
-        buttons:
-            - name: Download My Resume
-              url: /Ajay_Dhungel_Resume.pdf
 
     mainSections: []
 

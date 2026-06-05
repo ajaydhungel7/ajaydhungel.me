@@ -37,6 +37,15 @@
       "source": "Credly"
     },
     {
+      "title": "AWS Certified Developer \u2013 Associate",
+      "link": "https://www.credly.com/badges/cc1121c5-852b-4bb2-81fa-baadc15c1678",
+      "issuedAt": "Sep 28, 2025",
+      "issuedAtRaw": "2025-09-28T19:00:00-05:00",
+      "expiresAt": "Sep 28, 2028",
+      "thumbnail": "https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
+      "source": "Credly"
+    },
+    {
       "title": "AWS Certified Machine Learning Engineer \u2013 Associate",
       "link": "https://www.credly.com/badges/b6d80b3e-e1c3-40de-95fa-f27d82a23612",
       "issuedAt": "Feb 13, 2025",
@@ -46,12 +55,39 @@
       "source": "Credly"
     },
     {
+      "title": "AWS Certified Machine Learning Engineer - Associate Early Adopter",
+      "link": "https://www.credly.com/badges/62d438c0-0ab8-4af0-a7f8-d243d29959e6",
+      "issuedAt": "Feb 13, 2025",
+      "issuedAtRaw": "2025-02-13T18:00:00-06:00",
+      "expiresAt": "",
+      "thumbnail": "https://images.credly.com/images/e92b66a6-d4b5-4e86-92f9-a80846fb81e2/image.png",
+      "source": "Credly"
+    },
+    {
       "title": "AWS Certified AI Practitioner",
       "link": "https://www.credly.com/badges/46d3891b-6fde-44d8-aaa9-daad3f88d732",
       "issuedAt": "Jan 01, 2025",
       "issuedAtRaw": "2025-01-01T18:00:00-06:00",
       "expiresAt": "Jan 16, 2029",
       "thumbnail": "https://images.credly.com/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified AI Practitioner Early Adopter",
+      "link": "https://www.credly.com/badges/e5620d82-0350-4cb6-8ee6-1ebc618231ff",
+      "issuedAt": "Jan 01, 2025",
+      "issuedAtRaw": "2025-01-01T18:00:00-06:00",
+      "expiresAt": "",
+      "thumbnail": "https://images.credly.com/images/834f2c8d-2d2c-4ce7-9580-02a351c31626/image.png",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified Cloud Practitioner",
+      "link": "https://www.credly.com/badges/aa9ada7a-b460-4b87-8d79-8253bcbe9dd7",
+      "issuedAt": "Dec 21, 2024",
+      "issuedAtRaw": "2024-12-21T18:00:00-06:00",
+      "expiresAt": "Jan 16, 2029",
+      "thumbnail": "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
       "source": "Credly"
     },
     {
@@ -70,6 +106,15 @@
       "issuedAtRaw": "2023-12-25T18:00:00-06:00",
       "expiresAt": "Dec 25, 2025",
       "thumbnail": "https://images.credly.com/images/0dc62494-dc94-469a-83af-e35309f27356/blob",
+      "source": "Credly"
+    },
+    {
+      "title": "AWS Certified Solutions Architect \u2013 Associate",
+      "link": "https://www.credly.com/badges/2db9eddc-aab9-4584-8a4c-ea54cab82577",
+      "issuedAt": "Jun 17, 2023",
+      "issuedAtRaw": "2023-06-17T19:00:00-05:00",
+      "expiresAt": "Jan 07, 2029",
+      "thumbnail": "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
       "source": "Credly"
     }
   ]
