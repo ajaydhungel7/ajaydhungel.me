@@ -1,0 +1,98 @@
+.about-header-wrap {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 32px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.about-header-left {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.post-content .about-name,
+.about-name {
+  margin: 0 0 6px !important;
+  font-size: 2rem;
+  line-height: 1.2;
+  border: none;
+}
+
+.about-contact {
+  font-size: 0.88rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.about-contact a {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+/* LinkedIn-style document card */
+.resume-card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 140px !important;
+  min-width: 140px !important;
+  flex-shrink: 0 !important;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none !important;
+  box-shadow: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.resume-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.resume-card-preview {
+  width: 140px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+.resume-card-preview img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  max-height: 180px;
+}
+
+.resume-card-footer {
+  background: #1d1d1f;
+  padding: 8px 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.resume-card-filename {
+  font-size: 0.65rem;
+  color: #e0e0e0;
+  display: block;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .about-header-wrap {
+    flex-direction: column-reverse !important;
+    gap: 20px;
+  }
+
+  .resume-card {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+
+  .resume-card-preview {
+    width: 100%;
+  }
+}

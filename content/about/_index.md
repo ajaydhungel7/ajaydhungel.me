@@ -4,74 +4,71 @@ url: "/about/"
 author: Ajay Dhungel
 showReadingTime: false
 ---
-# Ajay Dhungel
-Toronto, ON · (437) 870-6261 · dhungelajay@gmail.com
+{{< resume-preview >}}
 
 ---
 
 ## Summary
-DevOps Engineer with 3+ years delivering secure, scalable AWS infrastructure across SaaS and multi-client environments. Experienced in Terraform, Terragrunt, Kubernetes (EKS), and GitHub Actions CI/CD with a security-first approach. Contributed to AWS DevOps Competency designation as an AWS Partner engineer, with a proven track record of maintaining 99.9% uptime, reducing costs, and aligning infrastructure with compliance and reliability standards.
-
-## Focus Areas
-- **Container Orchestration**: Kubernetes and container platforms management
-- **CI/CD**: End to end robust pipelines development with tests and safe releases
-- **Infrastructure as Code**: Modular IaC development with secrets management
-- **Configuration Management**: Design and maintain flexible config systems
-- **Scripting**: Bash/shell scripting along with Python to automate repetitive tasks
-- **Security First**: DevSecOps, shift-left practices, SOC 2 alignment, secrets management
-- **Cost Discipline**: Right-sizing, efficiency, and long-term sustainability
-- **Observability**: CloudWatch, Container Insights, Prometheus, Grafana, Datadog
+DevOps Engineer with 3 years of professional experience, 4+ years of AWS exposure, and a 4-year tenure as AWS Community Builder. Maintained SOC 2 compliance across EKS and serverless platforms, drove AWS DevOps Competency designation as an AWS Partner engineer, and built agentic AI systems on Amazon Bedrock; presented at AWS Summit Toronto 2025 and 2026.
 
 ## Professional Experience
 
 ### DevOps Engineer
 **Deskree Technologies Inc.** | Toronto, ON
-*May 2025 - January 2026*
-- Led AWS platform operations (EKS, RDS Aurora, VPC, ALB) to deliver 99.9% uptime and cost-efficient production systems.
-- Built modular Terraform stacks with dev/prod Terraform Cloud workspaces connected to GitHub VCS, automating plan/apply workflows, centralizing secrets via AWS Secrets Manager, and importing untracked resources to bring infrastructure fully under IaC control.
-- Built GitHub Actions CI/CD pipelines for containerized Next.js, TypeScript backend, and Python MCP server services, automating builds, tests, and image delivery to ECR with ArgoCD handling GitOps-based deployments to EKS.
-- Centralized observability via CloudWatch and Container Insights, building Lambda-based alerting pipelines to Slack, optimizing metrics collection intervals and rightsizing resources to reduce monitoring and infrastructure costs.
-- Maintained SOC 2 compliance using Vanta, triaging and remediating flagged controls to ensure continuous audit readiness.
-- Administered multiple AWS accounts under consolidated billing as sole DevOps engineer, managing IAM users, roles, and policies to enforce least-privilege access across engineering teams and all cloud resources.
+*March 2025 - February 2026*
+- Delivered 99.9% production uptime by leading AWS platform operations across EKS, RDS Aurora, VPC, and ALB.
+- Engineered modular Terraform stacks with dev/prod Terraform Cloud workspaces, automating plan/apply workflows, centralizing secrets via AWS Secrets Manager, and bringing all untracked resources under IaC control.
+- Built GitHub Actions CI/CD pipelines for containerized Next.js, TypeScript, and Python MCP server services, automating builds, tests, and ECR delivery; bootstrapped EKS clusters with Ansible and deployed ArgoCD via App of Apps for GitOps.
+- Reduced monitoring and infrastructure costs by centralizing observability with CloudWatch and Container Insights, developing Python Lambda functions to route alarms to Slack, and rightsizing resources.
+- Maintained SOC 2 compliance via Vanta, triaging and remediating flagged controls to ensure continuous audit readiness.
+- Enforced least-privilege IAM across multiple AWS accounts under consolidated billing as the sole DevOps engineer, managing users, roles, and policies for all engineering teams.
 
 ### Cloud Engineer
 **Genese Solution** | Kathmandu, Nepal
-*March 2022 - Dec 2023*
-- Designed and operated serverless microservice architectures on AWS using Lambda, DynamoDB, and API Gateway with CloudFormation, delivering 99.9% platform availability for clients including Cross River Bank.
-- Automated infrastructure provisioning and microservice deployments for Cross River Bank using Terraform, CloudFormation, CodePipeline, and Jenkins, streamlining release workflows across multiple Lambda-based services.
-- Led 45+ AWS Well-Architected Framework Reviews across multiple client accounts, producing detailed architecture diagrams in Lucidchart and Draw.io to communicate findings and align clients with AWS best practices.
-- Conducted IAM audits and vulnerability assessments across multiple client AWS environments, implementing data protection and security best practices in regulated cloud environments.
+*March 2022 - December 2023*
+- Architected and operated serverless microservice platforms on AWS (Lambda, DynamoDB, API Gateway, CloudFormation), achieving 99.9% availability across multiple client accounts.
+- Automated infrastructure provisioning and multi-service deployments for Cross River Bank using Terraform, CloudFormation, CodePipeline, and Jenkins, cutting manual release effort.
+- Led 45+ AWS Well-Architected Framework Reviews, producing architecture diagrams in Lucidchart and Draw.io to surface risks and align clients with AWS best practices.
+- Hardened security across multiple client AWS environments by executing IAM audits and vulnerability assessments, implementing data protection controls in regulated cloud environments.
 
 ## Education
-**Post Graduate Certificate, DevOps for Cloud Computing**
-Lambton College, Toronto | August 2025 | Dean's List, Fall 2025
 
-**Bachelor of Information Management**
-Tribhuvan University, Kathmandu | 2017 - 2022
+**Lambton College** | Post-Graduate Certificate in DevOps For Cloud Computing | 2025
+Dean's List
 
-## Tech Stack
+**Tribhuvan University** | Bachelor of Information Management | 2022
 
-**Cloud Providers**: AWS, Azure, GCP
+## Technical Skills
 
-**Version Control**: Git, GitHub, GitLab
+**IaC**: Terraform, Terragrunt, Ansible, CloudFormation
 
-**IaC**: Terraform, CloudFormation, OpenTofu
+**Containers**: Kubernetes (EKS), Docker, Helm, ArgoCD
 
-**CI/CD**: GitHub Actions, AWS CodePipeline, GitLab CI/CD, Jenkins
+**CI/CD**: GitHub Actions, Jenkins, CodePipeline, GitOps
 
-**Observability**: Prometheus, Grafana, Datadog, Loki, CloudWatch Container Insights, Athena
+**Scripting**: Python, Bash, Linux
 
-**Data Stores**: RDS/Aurora, ElastiCache (Redis), S3, ElasticSearch/OpenSearch, DocumentDB
+**Cloud**: AWS (EKS, ECS, RDS Aurora, Lambda, VPC, ALB, ECR, Secrets Manager, IAM, SES, Bedrock)
 
-**Kubernetes Ecosystem**: eksctl, Helm, Kong, ArgoCD, Lens, Karpenter, Kustomize, nginx-ingress, AWS Load Balancer Controller
+**Observability**: CloudWatch, Container Insights, Prometheus, Grafana, Datadog, alerting
 
-**Scripting & OS**: Python, Bash, Linux
+**Security**: DevSecOps, SOC 2, Vanta, shift-left practices
 
-**Networking & Middleware**: AWS ALB, nginx, Route53, VPC, Security Groups
+## Certifications
 
-## Community & Speaking
-**AWS Community Builders Program**
-- AWS Community Builder since 2023 | [Community Builders Profile](https://builder.aws.com/community/@ajaya)
-- Speaker at AWS Summit Toronto 2025 & 2026, and AWS User Group Toronto
-- ABW Grant recipient 2025; attended re:Invent 2025 in Las Vegas
+- **AWS Certified DevOps Engineer – Professional** | Sep 2024
+- **AWS Certified Solutions Architect – Professional** | Jan 2026
+- **AWS Certified Generative AI Developer – Professional** | Jan 2026
+- **AWS Certified CloudOps Engineer – Associate** | Oct 2025
+- **AWS Certified Developer – Associate** | Sep 2025
+- **AWS Certified Machine Learning Engineer – Associate** | Feb 2025
+- **AWS Certified Solutions Architect – Associate** | Jun 2023
+- **HashiCorp Certified: Terraform Associate (003)** | Dec 2023
+
+## Community & Accomplishments
+
+- AWS Community Builder (2023–2026) | [Community Builders Profile](https://builder.aws.com/community/@ajaya)
+- All Builders Welcome Grant | Amazon Web Services, 2025; attended re:Invent 2025 in Las Vegas
+- Speaker: AWS Summit Toronto 2025 — Multi-Agent Collaboration on Amazon Bedrock
+- Speaker: AWS Summit Toronto 2026 — Building a Personal AI Assistant in Minutes with OpenClaw on AWS
 - Early access and beta testing for Kiro and Amazon Q
