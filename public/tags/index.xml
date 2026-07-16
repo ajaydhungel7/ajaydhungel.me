@@ -2,10 +2,117 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Ajay Dhungel</title>
-    <link>/tags/</link>
+    <link>//localhost:1314/tags/</link>
     <description>Recent content in Tags on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>DevOps Engineer | Cloud Infrastructure | AWS</copyright>
+    <lastBuildDate>Thu, 07 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1314/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automation</title>
+      <link>//localhost:1314/tags/automation/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cicd</title>
+      <link>//localhost:1314/tags/cicd/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/cicd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>//localhost:1314/tags/devops/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github-Actions</title>
+      <link>//localhost:1314/tags/github-actions/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>//localhost:1314/tags/aws/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>//localhost:1314/tags/docker/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>//localhost:1314/tags/kubernetes/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Argocd</title>
+      <link>//localhost:1314/tags/argocd/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/argocd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Eks</title>
+      <link>//localhost:1314/tags/eks/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/eks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gitops</title>
+      <link>//localhost:1314/tags/gitops/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/gitops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>//localhost:1314/tags/terraform/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iac</title>
+      <link>//localhost:1314/tags/iac/</link>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/iac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terragrunt</title>
+      <link>//localhost:1314/tags/terragrunt/</link>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/terragrunt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gateway-Api</title>
+      <link>//localhost:1314/tags/gateway-api/</link>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/gateway-api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>//localhost:1314/tags/networking/</link>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/tags/networking/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

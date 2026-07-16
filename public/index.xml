@@ -2,25 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ajay Dhungel</title>
-    <link>/</link>
+    <link>//localhost:1314/</link>
     <description>Recent content on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>DevOps Engineer | Cloud Infrastructure | AWS</copyright>
+    <lastBuildDate>Thu, 07 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1314/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/about/</guid>
-      <description>&lt;h1 id=&#34;ajay-dhungel&#34;&gt;Ajay Dhungel&lt;/h1&gt;&#xA;&lt;p&gt;Toronto, ON&lt;br&gt;&#xA;(437) 870-6261 | &lt;a href=&#34;mailto:dhungelajay@gmail.com&#34;&gt;dhungelajay@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;Results-oriented DevOps Engineer specializing in AWS cloud solutions with 3+ years of experience architecting and implementing scalable, reliable infrastructure using Infrastructure as Code (IaC) and Kubernetes. Proven ability to automate processes, streamline deployments, and troubleshoot complex issues. Passionate advocate for continuous learning and delivering exceptional results.&lt;/p&gt;&#xA;&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cloud Platforms&lt;/strong&gt;: AWS (EC2, S3, RDS, VPC, Lambda, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Infrastructure as Code&lt;/strong&gt;: Terraform&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Configuration Management&lt;/strong&gt;: Ansible, Chef&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CI/CD&lt;/strong&gt;: Jenkins, GitLab CI&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Scripting&lt;/strong&gt;: Bash, Python&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Containers&lt;/strong&gt;: Docker, Kubernetes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Monitoring&lt;/strong&gt;: CloudWatch, Prometheus&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Soft Skills&lt;/strong&gt;: Problem-solving, communication, teamwork&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;professional-experience&#34;&gt;Professional Experience&lt;/h2&gt;&#xA;&lt;h3 id=&#34;associate-cloud-engineer&#34;&gt;Associate Cloud Engineer&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Genese Solution Pvt. Ltd.&lt;/strong&gt; | Lalitpur, Nepal&lt;br&gt;&#xA;&lt;em&gt;March 2022 - Dec 2023&lt;/em&gt;&lt;/p&gt;</description>
+      <title>I Built a Portfolio Site That Updates Itself Every Night</title>
+      <link>//localhost:1314/posts/automated-portfolio/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/posts/automated-portfolio/</guid>
+      <description>&lt;h2 id=&#34;the-problem-with-portfolio-sites&#34;&gt;The Problem with Portfolio Sites&lt;/h2&gt;&#xA;&lt;p&gt;I had let mine go stale for months. I&amp;rsquo;d shipped projects, written posts, earned certifications, and none of it showed up because updating the site meant carving out time I never had. At some point I stopped pretending discipline was the answer and just automated the whole thing.&lt;/p&gt;&#xA;&lt;p&gt;This post covers how I wired four external data sources into a Hugo site that updates itself nightly, with a CI/CD pipeline that tests, builds, and deploys without me touching anything.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Blog</title>
-      <link>/blog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/blog/</guid>
-      <description>&lt;h2 id=&#34;welcome-to-my-blog&#34;&gt;Welcome to My Blog&lt;/h2&gt;&#xA;&lt;p&gt;This is where I&amp;rsquo;ll share my thoughts and experiences.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dev.to/aws-builders/leveraging-aws-codepipeline-pipeline-and-serverless-framework-to-deploy-a-flask-api-3jha&#34;&gt;Leveraging AWS CodePipeline and Serverless Framework to Deploy a Flask API&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/streamlining-deployment-leveraging-github-actions-to-deploy-a-python-application-on-aws-ecs-187eb524a08d&#34;&gt;Streamlining Deployment: Leveraging GitHub Actions to Deploy a Python Application on AWS ECS&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://community.aws/content/2b16dziFM3CwBTJbZNwOvdY5VNp/trying-aws-cloudformation-git-sync-for-git-management-of-stacks&#34;&gt;Trying AWS CloudFormation Git Sync for Git Management of Stacks&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/amazon-ecr-how-to-avoid-pull-rate-limits-on-base-docker-images-from-docker-hub-47b35d3f9c3d&#34;&gt;Amazon ECR: How to Avoid Pull Rate Limits on Base Docker Images from Docker Hub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://medium.com/@adhungel2/aws-step-functions-creating-a-busy-waiting-flow-to-wait-for-successful-lambda-executions-c0f65d43ef33&#34;&gt;AWS Step Functions: Creating a Busy-Waiting Flow to Wait for Successful Lambda Executions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/using-amazon-eventbridge-with-codebuild-project-to-sync-cross-account-s3-buckets-43330e6af260&#34;&gt;Using Amazon EventBridge with CodeBuild Project to Sync Cross-Account S3 Buckets&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://awstip.com/configuring-aws-ci-cd-codepipeline-with-terraform-3046f017dac5&#34;&gt;Configuring AWS CI/CD CodePipeline with Terraform&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <title>Build Once, Promote Everywhere: GitHub Actions the Right Way</title>
+      <link>//localhost:1314/posts/github-actions-image-promotion/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/posts/github-actions-image-promotion/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Something I see a lot in CI/CD setups is a separate pipeline for each environment, each one building its own Docker image. Dev pipeline builds an image, staging pipeline builds an image, production pipeline builds an image. The code is the same. The Dockerfile is the same. The result is theoretically the same. But you spent three build cycles to get there, and you have no actual guarantee that what you tested in dev is what you shipped to prod.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>One Command to a Running Cluster: Terraform, ArgoCD, and the GitOps Handoff</title>
+      <link>//localhost:1314/posts/terraform-argocd-gitops/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/posts/terraform-argocd-gitops/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When I started using Terraform and Kubernetes together, one question kept coming up: where does Terraform stop and something else begin?&lt;/p&gt;&#xA;&lt;p&gt;The easy answer is to let Terraform manage everything. It can install Helm charts, create Kubernetes resources, manage namespaces. But Terraform tracks state as a snapshot. It knows what it deployed, but has no idea what is actually running. If a deployment crashes, if pods are stuck pending, if someone deletes something manually, Terraform does not know and does not care. Its state file says everything is fine, so everything is fine.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How I Structure My Terragrunt Setup</title>
+      <link>//localhost:1314/posts/terragrunt-structure/</link>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/posts/terragrunt-structure/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Terraform gets messy fast. A single &lt;code&gt;main.tf&lt;/code&gt; works fine for a few resources. The moment you have multiple components that depend on each other, multiple environments, and a team sharing state, things start to break down.&lt;/p&gt;&#xA;&lt;p&gt;Terragrunt is a thin wrapper around Terraform that solves three specific problems: keeping your configuration DRY, managing remote state without repeating backend blocks everywhere, and wiring up dependencies between components so they share outputs cleanly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes Gateway API v1.5: The End of Ingress Annotation Hell</title>
+      <link>//localhost:1314/posts/kubernetes-gateway-api/</link>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/posts/kubernetes-gateway-api/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;If you have spent any meaningful time running workloads on Kubernetes, you have probably dealt with Ingress resources. They work. They get traffic into your cluster. But the moment you need something beyond basic host and path routing, you end up buried in controller-specific annotations that nobody else understands, that break the moment you switch controllers, and that give your application teams zero autonomy.&lt;/p&gt;&#xA;&lt;p&gt;The Kubernetes Gateway API is the project&amp;rsquo;s answer to that problem. It is not just a newer version of Ingress. It is a fundamentally different way of thinking about traffic routing in a cluster, one that actually maps to how teams are structured and how infrastructure responsibility is divided.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
