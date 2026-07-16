@@ -109,6 +109,38 @@
   margin-top: 10px;
 }
 
+.github-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.github-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--entry);
+  color: var(--secondary);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.github-more-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.github-more-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+}
+
 @media (max-width: 600px) {
   .github-grid {
     grid-template-columns: 1fr;

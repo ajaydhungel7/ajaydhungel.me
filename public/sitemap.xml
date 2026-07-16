@@ -2,22 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2026-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/articles/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2026-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>//localhost:1313/tags/automation/</loc>
+    <lastmod>2026-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>//localhost:1313/tags/cicd/</loc>
+    <lastmod>2026-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
+    <loc>//localhost:1313/tags/devops/</loc>
+    <lastmod>2026-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
+    <loc>//localhost:1313/tags/github-actions/</loc>
+    <lastmod>2026-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>//localhost:1313/posts/automated-portfolio/</loc>
+    <lastmod>2026-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
+    <lastmod>2026-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/aws/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/github-actions-image-promotion/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/docker/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/kubernetes/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/argocd/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/eks/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/gitops/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/terraform-argocd-gitops/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/terraform/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/terragrunt-structure/</loc>
+    <lastmod>2026-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/iac/</loc>
+    <lastmod>2026-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/terragrunt/</loc>
+    <lastmod>2026-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/gateway-api/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/kubernetes-gateway-api/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/networking/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/about/</loc>
+  </url><url>
+    <loc>//localhost:1313/blog/</loc>
+  </url><url>
+    <loc>//localhost:1313/bookmarks/</loc>
+  </url><url>
+    <loc>//localhost:1313/categories/</loc>
+  </url><url>
+    <loc>//localhost:1313/certifications/</loc>
+  </url><url>
+    <loc>//localhost:1313/projects/</loc>
+  </url><url>
+    <loc>//localhost:1313/talks/</loc>
   </url>
 </urlset>
