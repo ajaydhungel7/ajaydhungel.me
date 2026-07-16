@@ -1,14 +1,24 @@
 {
   "items": [
     {
-      "event": "AWS User Group Toronto",
-      "title": "Multi-Agent Collaboration in Amazon Bedrock Using Terraform",
-      "date": "May 8, 2025",
+      "event": "AWS User Group London Ontario",
+      "title": "AWS Lambda MicroVMs: From Zero to Running",
+      "date": "July 11, 2026",
+      "location": "London, ON, Canada (Online)",
+      "description": "Walked through AWS Lambda MicroVMs end-to-end — from provisioning infrastructure with CloudFormation to building a custom image, launching MicroVM instances, and executing code inside them using Claude Code with the AWS MCP plugin.",
+      "slides": "/slides/lambda-microvms.pptx",
+      "link": "",
+      "photo": "/imgs/talk-aws-ug-london-on.png"
+    },
+    {
+      "event": "AWS Summit Toronto 2026",
+      "title": "Building a Personal AI Assistant in Minutes with OpenClaw",
+      "date": "June 3, 2026",
       "location": "Toronto, ON, Canada",
-      "description": "Shared my experience with the AWS New Voices Program and walked through building Multi-Agent Collaboration in Amazon Bedrock, with all infrastructure provisioned using Terraform.",
-      "slides": "/slides/orchestrating-bedrock-agents.pptx",
-      "link": "https://www.meetup.com/aws-ug-toronto/events/307499391/?eventOrigin=group_events_list",
-      "photo": "/imgs/talk-aws-ug-toronto.jpeg"
+      "description": "Spoke at AWS Summit Toronto 2026 on building a personal AI assistant quickly using OpenClaw, powered by AWS Lightsail with all infrastructure managed as code.",
+      "slides": "/slides/openclaw-lightsail.pptx",
+      "link": "",
+      "photo": "/imgs/talk-aws-summit-toronto-2026.jpg"
     },
     {
       "event": "AWS Summit Toronto 2025",
@@ -21,14 +31,14 @@
       "photo": "/imgs/talk-aws-summit-toronto.png"
     },
     {
-      "event": "AWS Summit Toronto 2026",
-      "title": "Building a Personal AI Assistant in Minutes with OpenClaw",
-      "date": "June 3, 2026",
+      "event": "AWS User Group Toronto",
+      "title": "Multi-Agent Collaboration in Amazon Bedrock Using Terraform",
+      "date": "May 8, 2025",
       "location": "Toronto, ON, Canada",
-      "description": "Spoke at AWS Summit Toronto 2026 on building a personal AI assistant quickly using OpenClaw, powered by AWS Lightsail with all infrastructure managed as code.",
-      "slides": "/slides/openclaw-lightsail.pptx",
-      "link": "",
-      "photo": "/imgs/talk-aws-summit-toronto-2026.jpg"
+      "description": "Shared my experience with the AWS New Voices Program and walked through building Multi-Agent Collaboration in Amazon Bedrock, with all infrastructure provisioned using Terraform.",
+      "slides": "/slides/orchestrating-bedrock-agents.pptx",
+      "link": "https://www.meetup.com/aws-ug-toronto/events/307499391/?eventOrigin=group_events_list",
+      "photo": "/imgs/talk-aws-ug-toronto.jpeg"
     }
   ]
 }
