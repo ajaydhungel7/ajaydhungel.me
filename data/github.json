@@ -1,0 +1,169 @@
+{
+  "items": [
+    {
+      "name": "microvm-demo",
+      "description": "Example of running AWS Lambda MicroVMs with Claude Code and the AWS MCP plugin — deploys infra, builds a custom image, launches/suspends/resumes MicroVMs, and executes code inside them via natural language prompts.",
+      "url": "https://github.com/ajaydhungel7/microvm-demo",
+      "stars": 0,
+      "forks": 0,
+      "language": "Shell",
+      "topics": ["aws", "lambda", "microvm", "claude-code", "mcp"],
+      "updatedAt": "Jul 16, 2026",
+      "updatedAtRaw": "2026-07-16T18:44:40+00:00",
+      "pinned": true
+    },
+    {
+      "name": "flask-azure-k8s",
+      "description": "This project automates the process of building Docker images, pushing them to Azure Container Registry (ACR), updating Kubernetes manifests, and deploying the application to Azure Kubernetes Service (AKS).",
+      "url": "https://github.com/ajaydhungel7/flask-azure-k8s",
+      "stars": 1,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "updatedAt": "Jan 22, 2026",
+      "updatedAtRaw": "2026-01-22T17:45:14+00:00",
+      "pinned": true
+    },
+    {
+      "name": "aws-cdk-chatbot",
+      "description": "Serverless chatbot API built with AWS CDK, API Gateway, Lambda, and Amazon Bedrock for LLM-powered conversations",
+      "url": "https://github.com/ajaydhungel7/aws-cdk-chatbot",
+      "stars": 1,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "amazon-bedrock",
+        "api-gateway",
+        "aws-cdk",
+        "chatbot",
+        "lambda",
+        "llm",
+        "python",
+        "serverless"
+      ],
+      "updatedAt": "Jan 22, 2026",
+      "updatedAtRaw": "2026-01-22T17:59:55+00:00",
+      "pinned": true
+    },
+    {
+      "name": "railsflow-ci",
+      "description": "Production-grade CI/CD pipeline reference for Ruby on Rails \u2014 GitHub Actions, EKS, Helm, Terragrunt",
+      "url": "https://github.com/ajaydhungel7/railsflow-ci",
+      "stars": 1,
+      "forks": 0,
+      "language": "Ruby",
+      "topics": [],
+      "updatedAt": "Apr 06, 2026",
+      "updatedAtRaw": "2026-04-06T21:15:01+00:00",
+      "pinned": true
+    },
+    {
+      "name": "rubyrana",
+      "description": "Ruby SDK for building agentic AI with tools, streaming, MCP, and extensible tool loading.",
+      "url": "https://github.com/ajaydhungel7/rubyrana",
+      "stars": 1,
+      "forks": 0,
+      "language": "Ruby",
+      "topics": [],
+      "updatedAt": "Feb 04, 2026",
+      "updatedAtRaw": "2026-02-04T08:36:54+00:00",
+      "pinned": true
+    },
+    {
+      "name": "bedrock-agents-collab",
+      "description": "Terraform infrastructure for AWS Bedrock multi-agent collaboration system. Showcased at AWS Summit Toronto 2025 - demonstrates AI agents working together using AWS Bedrock foundation models.",
+      "url": "https://github.com/ajaydhungel7/bedrock-agents-collab",
+      "stars": 4,
+      "forks": 0,
+      "language": "HCL",
+      "topics": [],
+      "updatedAt": "Jan 31, 2026",
+      "updatedAtRaw": "2026-01-31T03:18:24+00:00",
+      "pinned": false
+    },
+    {
+      "name": "gitlab-on-ecs",
+      "description": "Privately host your Gitlab environment on AWS ECS with Fargate deployment! Used terraform for IaC. Key components are S3 bucket, redis cluster for caching, PostgresSql Database, and EFS Volumes ",
+      "url": "https://github.com/ajaydhungel7/gitlab-on-ecs",
+      "stars": 3,
+      "forks": 1,
+      "language": "HCL",
+      "topics": [],
+      "updatedAt": "Jan 22, 2026",
+      "updatedAtRaw": "2026-01-22T17:45:11+00:00",
+      "pinned": false
+    },
+    {
+      "name": "ajaydhungel.me",
+      "description": "My personal portfolio built using Hugo Framework and Charlola template !",
+      "url": "https://github.com/ajaydhungel7/ajaydhungel.me",
+      "stars": 1,
+      "forks": 0,
+      "language": "HTML",
+      "topics": [],
+      "updatedAt": "May 09, 2026",
+      "updatedAtRaw": "2026-05-09T04:28:16+00:00",
+      "pinned": false
+    },
+    {
+      "name": "k8s-gitops",
+      "description": "Full GitOps lifecycle on AWS EKS \u2014 FastAPI, Nginx, MongoDB, Redis deployed via ArgoCD and Helm, with Jenkins CI/CD and Terraform + Terragrunt IaC",
+      "url": "https://github.com/ajaydhungel7/k8s-gitops",
+      "stars": 1,
+      "forks": 0,
+      "language": "HCL",
+      "topics": [],
+      "updatedAt": "May 05, 2026",
+      "updatedAtRaw": "2026-05-05T22:19:21+00:00",
+      "pinned": false
+    },
+    {
+      "name": "fpl-agent",
+      "description": "AI assistant for Fantasy Premier League (Fantasy Football) \u2014 built with the Strands framework and FPL API, helps with transfers, captain picks, and squad decisions",
+      "url": "https://github.com/ajaydhungel7/fpl-agent",
+      "stars": 1,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "updatedAt": "May 05, 2026",
+      "updatedAtRaw": "2026-05-05T17:44:35+00:00",
+      "pinned": false
+    },
+    {
+      "name": "docker",
+      "description": "Multi-stack app with Docker, Nginx reverse proxy, Jenkins pipelines, and GitHub Actions CI/CD",
+      "url": "https://github.com/ajaydhungel7/docker",
+      "stars": 1,
+      "forks": 0,
+      "language": "JavaScript",
+      "topics": [],
+      "updatedAt": "May 05, 2026",
+      "updatedAtRaw": "2026-05-05T17:26:47+00:00",
+      "pinned": false
+    },
+    {
+      "name": "SpringBoot_Demo",
+      "description": "Spring Boot app on EKS with DocumentDB, Terraform IaC for ECR and networking, and GitHub Actions CI/CD",
+      "url": "https://github.com/ajaydhungel7/SpringBoot_Demo",
+      "stars": 1,
+      "forks": 0,
+      "language": "Java",
+      "topics": [],
+      "updatedAt": "May 05, 2026",
+      "updatedAtRaw": "2026-05-05T17:26:46+00:00",
+      "pinned": false
+    },
+    {
+      "name": "argo",
+      "description": "GitOps-managed WordPress deployment on Kubernetes using ArgoCD and Helm with dev, staging, and prod environments",
+      "url": "https://github.com/ajaydhungel7/argo",
+      "stars": 1,
+      "forks": 0,
+      "language": "",
+      "topics": [],
+      "updatedAt": "May 05, 2026",
+      "updatedAtRaw": "2026-05-05T17:26:45+00:00",
+      "pinned": false
+    }
+  ]
+}
