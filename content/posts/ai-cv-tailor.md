@@ -1,11 +1,11 @@
 ---
 title: "I Built an AI Pipeline That Tailors My CV From a Job Description"
 date: 2026-09-04
-draft: true
+draft: false
 author: Ajay Dhungel
 description: "How I built an AI-native CV tailoring pipeline where Claude reads a job description, makes tailoring decisions, and compiles a submission-ready PDF."
 tags: ["ai", "automation", "productivity", "devops"]
-tech: ["claude", "aws"]
+tech: ["aws"]
 cover:
   image: /imgs/post-008.png
   alt: AI CV tailoring pipeline diagram
