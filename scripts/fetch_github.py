@@ -53,12 +53,8 @@ def build_items(repos, limit, pinned):
             }
         )
 
-    # Pinned repos first (in declared order), then by stars descending
-    pin_order = {name: i for i, name in enumerate(pinned)}
-    items.sort(key=lambda r: (
-        pin_order.get(r["name"], len(pinned) + 1),
-        -r["stars"],
-    ))
+    # Sort by stars descending
+    items.sort(key=lambda r: -r["stars"])
     return items[:limit]
 
 
