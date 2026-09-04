@@ -95,16 +95,16 @@ def test_limit_respected():
 # ---------------------------------------------------------------------------
 
 @pytest.mark.unit
-def test_pinned_repos_appear_first_in_declared_order():
+def test_repos_sorted_by_stars_descending():
     repos = [
-        _repo("a", stars=10),
-        _repo("b", stars=5),
-        _repo("c", stars=1),
+        _repo("a", stars=1),
+        _repo("b", stars=10),
+        _repo("c", stars=5),
     ]
-    items = build_items(repos, limit=10, pinned=["c", "b"])
+    items = build_items(repos, limit=10, pinned=[])
     names = [i["name"] for i in items]
-    assert names[0] == "c"
-    assert names[1] == "b"
+    assert names[0] == "b"
+    assert names[1] == "c"
     assert names[2] == "a"
 
 
