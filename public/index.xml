@@ -2,46 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ajay Dhungel</title>
-    <link>//localhost:1314/</link>
+    <link>//localhost:62300/</link>
     <description>Recent content on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>DevOps Engineer | Cloud Infrastructure | AWS</copyright>
-    <lastBuildDate>Thu, 07 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1314/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:62300/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Built an AI Pipeline That Tailors My CV From a Job Description</title>
+      <link>//localhost:62300/posts/ai-cv-tailor/</link>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:62300/posts/ai-cv-tailor/</guid>
+      <description>&lt;h2 id=&#34;the-problem-with-tailoring-a-cv-by-hand&#34;&gt;The Problem With Tailoring a CV by Hand&lt;/h2&gt;&#xA;&lt;p&gt;Every job application wants something slightly different. One role leads with Kubernetes, another is all about Terraform, a third cares mostly about observability. If you&amp;rsquo;re applying seriously you can&amp;rsquo;t just fire off the same resume everywhere, but manually tailoring it for every company takes time and the results are often half-hearted anyway.&lt;/p&gt;&#xA;&lt;p&gt;I wanted something better. Not a tool that does keyword stuffing, but one that actually reasons about the role and decides what to emphasize, what to cut, and how to frame things. So I built it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>I Use Obsidian as a Second Brain for Claude Code</title>
+      <link>//localhost:62300/posts/obsidian-claude-memory/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:62300/posts/obsidian-claude-memory/</guid>
+      <description>&lt;h2 id=&#34;claude-forgets-everything&#34;&gt;Claude Forgets Everything&lt;/h2&gt;&#xA;&lt;p&gt;Every time you start a new Claude Code session, the slate is clean. It does not remember what you decided last week, why you made that architectural call, or what variants you rejected. You end up re-explaining the same context over and over, and if you forget to mention something, Claude makes decisions that contradict choices you already made and thought were settled.&lt;/p&gt;&#xA;&lt;p&gt;I hit this constantly when I started using Claude Code to manage my CV tailoring workflow. I would open a session, Claude would help me tailor a resume for a company, and then the next session it had no idea any of that had happened. I wanted something more durable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>System Design 101: The Concepts Behind Every Cloud Architecture</title>
+      <link>//localhost:62300/posts/system-design-101-cloud/</link>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:62300/posts/system-design-101-cloud/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A lot of people learn cloud the way I learned to drive. You figure out which pedal does what, you get comfortable on familiar roads, and it mostly works. Until you hit an unfamiliar intersection and realize you never actually understood traffic flow.&lt;/p&gt;&#xA;&lt;p&gt;The same thing happens with AWS. You learn to spin up an EC2 instance, deploy a container, configure an S3 bucket. You can get things running. But when someone asks you to design a system that handles a million requests a day without falling over, or explain why the architecture is built the way it is, the gaps start to show.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>I Got Sent to AWS re:Invent 2025 and Here Is What Happened</title>
+      <link>//localhost:62300/posts/aws-reinvent-2025/</link>
+      <pubDate>Sat, 09 May 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:62300/posts/aws-reinvent-2025/</guid>
+      <description>&lt;h2 id=&#34;getting-the-grant&#34;&gt;Getting the Grant&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;getting-there&#34;&gt;Getting There&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-scale-of-the-thing&#34;&gt;The Scale of the Thing&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;sessions-worth-mentioning&#34;&gt;Sessions Worth Mentioning&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-hallway-track&#34;&gt;The Hallway Track&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;what-i-brought-back&#34;&gt;What I Brought Back&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;would-i-go-again&#34;&gt;Would I Go Again&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;That&amp;rsquo;s all for now! Thank you so much for making it to the end.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>I Built a Portfolio Site That Updates Itself Every Night</title>
-      <link>//localhost:1314/posts/automated-portfolio/</link>
+      <link>//localhost:62300/posts/automated-portfolio/</link>
       <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1314/posts/automated-portfolio/</guid>
+      <guid>//localhost:62300/posts/automated-portfolio/</guid>
       <description>&lt;h2 id=&#34;the-problem-with-portfolio-sites&#34;&gt;The Problem with Portfolio Sites&lt;/h2&gt;&#xA;&lt;p&gt;I had let mine go stale for months. I&amp;rsquo;d shipped projects, written posts, earned certifications, and none of it showed up because updating the site meant carving out time I never had. At some point I stopped pretending discipline was the answer and just automated the whole thing.&lt;/p&gt;&#xA;&lt;p&gt;This post covers how I wired four external data sources into a Hugo site that updates itself nightly, with a CI/CD pipeline that tests, builds, and deploys without me touching anything.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Build Once, Promote Everywhere: GitHub Actions the Right Way</title>
-      <link>//localhost:1314/posts/github-actions-image-promotion/</link>
+      <link>//localhost:62300/posts/github-actions-image-promotion/</link>
       <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1314/posts/github-actions-image-promotion/</guid>
+      <guid>//localhost:62300/posts/github-actions-image-promotion/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Something I see a lot in CI/CD setups is a separate pipeline for each environment, each one building its own Docker image. Dev pipeline builds an image, staging pipeline builds an image, production pipeline builds an image. The code is the same. The Dockerfile is the same. The result is theoretically the same. But you spent three build cycles to get there, and you have no actual guarantee that what you tested in dev is what you shipped to prod.&lt;/p&gt;</description>
     </item>
     <item>
       <title>One Command to a Running Cluster: Terraform, ArgoCD, and the GitOps Handoff</title>
-      <link>//localhost:1314/posts/terraform-argocd-gitops/</link>
+      <link>//localhost:62300/posts/terraform-argocd-gitops/</link>
       <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1314/posts/terraform-argocd-gitops/</guid>
+      <guid>//localhost:62300/posts/terraform-argocd-gitops/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When I started using Terraform and Kubernetes together, one question kept coming up: where does Terraform stop and something else begin?&lt;/p&gt;&#xA;&lt;p&gt;The easy answer is to let Terraform manage everything. It can install Helm charts, create Kubernetes resources, manage namespaces. But Terraform tracks state as a snapshot. It knows what it deployed, but has no idea what is actually running. If a deployment crashes, if pods are stuck pending, if someone deletes something manually, Terraform does not know and does not care. Its state file says everything is fine, so everything is fine.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How I Structure My Terragrunt Setup</title>
-      <link>//localhost:1314/posts/terragrunt-structure/</link>
+      <link>//localhost:62300/posts/terragrunt-structure/</link>
       <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1314/posts/terragrunt-structure/</guid>
+      <guid>//localhost:62300/posts/terragrunt-structure/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Terraform gets messy fast. A single &lt;code&gt;main.tf&lt;/code&gt; works fine for a few resources. The moment you have multiple components that depend on each other, multiple environments, and a team sharing state, things start to break down.&lt;/p&gt;&#xA;&lt;p&gt;Terragrunt is a thin wrapper around Terraform that solves three specific problems: keeping your configuration DRY, managing remote state without repeating backend blocks everywhere, and wiring up dependencies between components so they share outputs cleanly.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Gateway API v1.5: The End of Ingress Annotation Hell</title>
-      <link>//localhost:1314/posts/kubernetes-gateway-api/</link>
+      <link>//localhost:62300/posts/kubernetes-gateway-api/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>//localhost:1314/posts/kubernetes-gateway-api/</guid>
+      <guid>//localhost:62300/posts/kubernetes-gateway-api/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;If you have spent any meaningful time running workloads on Kubernetes, you have probably dealt with Ingress resources. They work. They get traffic into your cluster. But the moment you need something beyond basic host and path routing, you end up buried in controller-specific annotations that nobody else understands, that break the moment you switch controllers, and that give your application teams zero autonomy.&lt;/p&gt;&#xA;&lt;p&gt;The Kubernetes Gateway API is the project&amp;rsquo;s answer to that problem. It is not just a newer version of Ingress. It is a fundamentally different way of thinking about traffic routing in a cluster, one that actually maps to how teams are structured and how infrastructure responsibility is divided.&lt;/p&gt;</description>
     </item>
   </channel>
