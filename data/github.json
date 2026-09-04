@@ -1,6 +1,18 @@
 {
   "items": [
     {
+      "name": "ai-cv-tailor",
+      "description": "AI-native CV tailoring pipeline. Drop in a JD, get a tailored PDF — Claude reads the job description, makes tailoring decisions, and compiles a submission-ready PDF via LaTeX.",
+      "url": "https://github.com/ajaydhungel7/ai-cv-tailor",
+      "stars": 0,
+      "forks": 0,
+      "language": "TeX",
+      "topics": ["claude", "ai", "latex", "cv"],
+      "updatedAt": "Sep 04, 2026",
+      "updatedAtRaw": "2026-09-04T16:48:47+00:00",
+      "pinned": true
+    },
+    {
       "name": "microvm-demo",
       "description": "Example of running AWS Lambda MicroVMs with Claude Code and the AWS MCP plugin — deploys infra, builds a custom image, launches/suspends/resumes MicroVMs, and executes code inside them via natural language prompts.",
       "url": "https://github.com/ajaydhungel7/microvm-demo",

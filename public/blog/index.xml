@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Ajay Dhungel</title>
-    <link>//localhost:1314/blog/</link>
+    <link>//localhost:1313/blog/</link>
     <description>Recent content in Articles on Ajay Dhungel</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>DevOps Engineer | Cloud Infrastructure | AWS</copyright>
-    <atom:link href="//localhost:1314/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
