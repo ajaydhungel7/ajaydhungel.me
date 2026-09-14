@@ -1,7 +1,7 @@
 ---
 title: "How I Built a Distributed Load Testing Platform on AWS"
 date: 2026-09-13
-draft: false
+draft: true
 author: Ajay Dhungel
 description: "A walkthrough of building a distributed load testing service on ECS Fargate — k6 workers that autoscale from zero based on SQS queue depth, with a FastAPI control plane and Grafana dashboards."
 tags: ["aws", "devops", "infrastructure", "load-testing"]
