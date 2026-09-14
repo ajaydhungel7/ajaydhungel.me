@@ -5,10 +5,7 @@ draft: false
 author: Ajay Dhungel
 description: "A walkthrough of building a distributed load testing service on ECS Fargate — k6 workers that autoscale from zero based on SQS queue depth, with a FastAPI control plane and Grafana dashboards."
 tags: ["aws", "devops", "infrastructure", "load-testing"]
-tech: ["aws", "typescript", "python", "grafana", "docker"]
-cover:
-  image: /imgs/post-009.png
-  alt: Architecture diagram of a distributed load testing platform on AWS ECS Fargate
+tech: ["aws", "docker", "iac", "github-actions"]
 ShowReadingTime: true
 ShowToc: true
 ShowBreadCrumbs: true
