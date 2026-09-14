@@ -76,7 +76,7 @@ jobs:
       - name: Fetch GitHub projects
         run: |
           python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json \
-            --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana
+            --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana distributed-loadtesting
 
       - name: Run integration tests
         run: pytest tests/integration/ -v
@@ -124,7 +124,7 @@ jobs:
       - name: Fetch GitHub projects
         run: |
           python3 scripts/fetch_github.py --user ajaydhungel7 --out data/github.json \
-            --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana
+            --pin flask-azure-k8s aws-cdk-chatbot railsflow-ci rubyrana distributed-loadtesting
 
       - name: Build Hugo site
         run: hugo --environment production --buildFuture
