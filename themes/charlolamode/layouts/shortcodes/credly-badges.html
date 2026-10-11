@@ -11,17 +11,20 @@
     {{- $scratch.Add "associate" (slice .) -}}
   {{- else if in $title "practitioner" -}}
     {{- $scratch.Add "practitioner" (slice .) -}}
+  {{- else if in $title "specialty" -}}
+    {{- $scratch.Add "specialty" (slice .) -}}
   {{- else -}}
     {{- $scratch.Add "other" (slice .) -}}
   {{- end -}}
 {{- end -}}
 
 {{- $sections := slice
-  (dict "key" "early" "title" "Early Adopter")
+  (dict "key" "specialty" "title" "Specialty")
   (dict "key" "professional" "title" "Professional")
   (dict "key" "associate" "title" "Associate")
   (dict "key" "practitioner" "title" "Practitioner")
   (dict "key" "other" "title" "Other")
+  (dict "key" "early" "title" "Early Adopter")
  -}}
 
 {{- range $sections -}}
