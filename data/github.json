@@ -1,28 +1,28 @@
 {
   "items": [
     {
-      "name": "ai-cv-tailor",
-      "description": "AI-native CV tailoring pipeline. Drop in a JD, get a tailored PDF — Claude reads the job description, makes tailoring decisions, and compiles a submission-ready PDF via LaTeX.",
-      "url": "https://github.com/ajaydhungel7/ai-cv-tailor",
-      "stars": 0,
+      "name": "bedrock-agents-collab",
+      "description": "Terraform infrastructure for AWS Bedrock multi-agent collaboration system. Showcased at AWS Summit Toronto 2025 - demonstrates AI agents working together using AWS Bedrock foundation models.",
+      "url": "https://github.com/ajaydhungel7/bedrock-agents-collab",
+      "stars": 4,
       "forks": 0,
-      "language": "TeX",
-      "topics": ["claude", "ai", "latex", "cv"],
-      "updatedAt": "Sep 04, 2026",
-      "updatedAtRaw": "2026-09-04T16:48:47+00:00",
-      "pinned": true
+      "language": "HCL",
+      "topics": [],
+      "updatedAt": "Jan 31, 2026",
+      "updatedAtRaw": "2026-01-31T03:18:24+00:00",
+      "pinned": false
     },
     {
-      "name": "microvm-demo",
-      "description": "Example of running AWS Lambda MicroVMs with Claude Code and the AWS MCP plugin — deploys infra, builds a custom image, launches/suspends/resumes MicroVMs, and executes code inside them via natural language prompts.",
-      "url": "https://github.com/ajaydhungel7/microvm-demo",
-      "stars": 0,
-      "forks": 0,
-      "language": "Shell",
-      "topics": ["aws", "lambda", "microvm", "claude-code", "mcp"],
-      "updatedAt": "Jul 16, 2026",
-      "updatedAtRaw": "2026-07-16T18:44:40+00:00",
-      "pinned": true
+      "name": "gitlab-on-ecs",
+      "description": "Privately host your Gitlab environment on AWS ECS with Fargate deployment! Used terraform for IaC. Key components are S3 bucket, redis cluster for caching, PostgresSql Database, and EFS Volumes ",
+      "url": "https://github.com/ajaydhungel7/gitlab-on-ecs",
+      "stars": 3,
+      "forks": 1,
+      "language": "HCL",
+      "topics": [],
+      "updatedAt": "Jan 22, 2026",
+      "updatedAtRaw": "2026-01-22T17:45:11+00:00",
+      "pinned": false
     },
     {
       "name": "flask-azure-k8s",
@@ -80,30 +80,6 @@
       "updatedAt": "Feb 04, 2026",
       "updatedAtRaw": "2026-02-04T08:36:54+00:00",
       "pinned": true
-    },
-    {
-      "name": "bedrock-agents-collab",
-      "description": "Terraform infrastructure for AWS Bedrock multi-agent collaboration system. Showcased at AWS Summit Toronto 2025 - demonstrates AI agents working together using AWS Bedrock foundation models.",
-      "url": "https://github.com/ajaydhungel7/bedrock-agents-collab",
-      "stars": 4,
-      "forks": 0,
-      "language": "HCL",
-      "topics": [],
-      "updatedAt": "Jan 31, 2026",
-      "updatedAtRaw": "2026-01-31T03:18:24+00:00",
-      "pinned": false
-    },
-    {
-      "name": "gitlab-on-ecs",
-      "description": "Privately host your Gitlab environment on AWS ECS with Fargate deployment! Used terraform for IaC. Key components are S3 bucket, redis cluster for caching, PostgresSql Database, and EFS Volumes ",
-      "url": "https://github.com/ajaydhungel7/gitlab-on-ecs",
-      "stars": 3,
-      "forks": 1,
-      "language": "HCL",
-      "topics": [],
-      "updatedAt": "Jan 22, 2026",
-      "updatedAtRaw": "2026-01-22T17:45:11+00:00",
-      "pinned": false
     },
     {
       "name": "ajaydhungel.me",
@@ -176,6 +152,30 @@
       "updatedAt": "May 05, 2026",
       "updatedAtRaw": "2026-05-05T17:26:45+00:00",
       "pinned": false
+    },
+    {
+      "name": "microvm-demo",
+      "description": "Example of running AWS Lambda MicroVMs with Claude Code and the AWS MCP plugin — deploys infra, builds a custom image, launches/suspends/resumes MicroVMs, and executes code inside them via natural language prompts.",
+      "url": "https://github.com/ajaydhungel7/microvm-demo",
+      "stars": 0,
+      "forks": 0,
+      "language": "Shell",
+      "topics": ["aws", "lambda", "microvm", "claude-code", "mcp"],
+      "updatedAt": "Jul 16, 2026",
+      "updatedAtRaw": "2026-07-16T18:44:40+00:00",
+      "pinned": true
+    },
+    {
+      "name": "ai-cv-tailor",
+      "description": "AI-native CV tailoring pipeline. Drop in a JD, get a tailored PDF — Claude reads the job description, makes tailoring decisions, and compiles a submission-ready PDF via LaTeX.",
+      "url": "https://github.com/ajaydhungel7/ai-cv-tailor",
+      "stars": 0,
+      "forks": 0,
+      "language": "TeX",
+      "topics": ["claude", "ai", "latex", "cv"],
+      "updatedAt": "Sep 04, 2026",
+      "updatedAtRaw": "2026-09-04T16:48:47+00:00",
+      "pinned": true
     }
   ]
 }
