@@ -11,6 +11,8 @@
     {{- $scratch.Add "associate" (slice .) -}}
   {{- else if in $title "practitioner" -}}
     {{- $scratch.Add "practitioner" (slice .) -}}
+  {{- else if in $title "specialty" -}}
+    {{- $scratch.Add "specialty" (slice .) -}}
   {{- else -}}
     {{- $scratch.Add "other" (slice .) -}}
   {{- end -}}
@@ -21,6 +23,7 @@
   (dict "key" "professional" "title" "Professional")
   (dict "key" "associate" "title" "Associate")
   (dict "key" "practitioner" "title" "Practitioner")
+  (dict "key" "specialty" "title" "Specialty")
   (dict "key" "other" "title" "Other")
  -}}
 
