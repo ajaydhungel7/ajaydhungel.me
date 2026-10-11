@@ -22,9 +22,6 @@ menu:
         - name: Certifications
           url: certifications/
           weight: 5
-        - name: Resources
-          url: bookmarks/
-          weight: 6
 
 
 
