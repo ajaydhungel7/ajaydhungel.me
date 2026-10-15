@@ -1,3 +1,23 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    text-align: left;
+}
+
+.about-bio a,
+.post-content a {
+    box-shadow: 0 1px 0 var(--secondary);
+}
+
+.timeline-badge a,
+#menu a,
+.social-icons a,
+.buttons a {
+    box-shadow: none !important;
+}
+
 .dark {
     --theme: rgb(10, 15, 30);
     --entry: rgb(16, 24, 48);
@@ -22,17 +42,33 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 60vw;
+}
+
+#menu::-webkit-scrollbar {
+    display: none;
+}
+
+#menu li {
+    flex-shrink: 0;
 }
 
 #menu li + li {
-    margin-inline-start: 2rem;
+    margin-inline-start: 1.2rem;
 }
 
 #menu a {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 13px;
-    color: var(--primary);
+    color: var(--secondary);
+    transition: color 0.2s ease;
 }
 
 #menu a span {
@@ -42,13 +78,20 @@
     transition: background 0.2s ease, color 0.2s ease;
 }
 
+#menu a:hover {
+    color: var(--primary);
+}
+
 #menu a:hover span {
     background: var(--tertiary);
     color: var(--primary);
 }
 
-#menu a:hover {
+/* Active page */
+#menu a span.active {
+    background: var(--tertiary);
     color: var(--primary);
+    font-weight: 600;
 }
 
 .logo {
@@ -71,5 +114,7 @@
     #menu {
         position: static;
         transform: none;
+        max-width: 100%;
+        width: 100%;
     }
 }

@@ -1,0 +1,166 @@
+<div class="about-intro">
+  <p class="about-bio">Hi, I'm Ajay Dhungel — a DevOps / Platform Engineer based in Toronto. I help teams ship software faster and more reliably. Take a look at my <a href="/projects/">projects</a>, <a href="/talks/">speaking engagements</a>, and <a href="/posts/">articles</a>. I'm an AWS Community Builder and AWS Certification Subject Matter Expert. Oh, and I hold all 12 AWS certifications.</p>
+</div>
+
+<h2 class="about-section-title">Journey</h2>
+<div class="about-timeline">
+  <div class="timeline-center"></div>
+
+  <div class="timeline-item item-left">
+    <div class="timeline-card" onclick="this.classList.toggle('expanded')">
+      <div class="timeline-card-header">
+        <div class="timeline-badge">
+          <a href="https://www.deskree.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <img src="/imgs/logo-deskree.png" alt="Deskree" class="timeline-logo">
+          </a>
+        </div>
+        <div class="timeline-card-info">
+          <span class="timeline-role">DevOps Engineer</span>
+          <span class="timeline-company">Deskree Technologies Inc &middot; Toronto, ON</span>
+          <span class="timeline-date">Mar 2025 &ndash; Feb 2026</span>
+        </div>
+        <span class="timeline-toggle" aria-hidden="true"><span class="timeline-expand-hint">expand</span></span>
+      </div>
+      <div class="timeline-card-body">
+        <ul class="timeline-desc">
+          <li>Owned AWS platform operations (EKS, RDS Aurora, VPC, ALB, Cloudflare DNS) as primary on-call for a 5-developer startup shipping daily.</li>
+          <li>Resolved production incidents including the us-east-1 regional outage, RabbitMQ pod failures, and broken container image releases.</li>
+          <li>Cut monthly CloudWatch costs by ~80% by rightsizing metric collection intervals.</li>
+          <li>Built alerting and observability: Python Lambda functions routing database alarms to Slack, Sentry for backend errors, Grafana dashboards on CloudWatch and Prometheus.</li>
+          <li>Built GitHub Actions CI/CD pipelines for a multi-agent platform on EKS: Docker builds pushed to ECR and manifests applied to the cluster, enabling daily releases with zero manual deployments.</li>
+          <li>Brought console-created resources under Terraform Cloud across 2 AWS accounts, with per-environment workspaces and prod merges gated on a passing dev run.</li>
+          <li>Maintained SOC 2 audit readiness via Vanta, remediating flagged access and misconfiguration findings.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item item-right timeline-item-edu">
+    <div class="timeline-card timeline-card-edu">
+      <div class="timeline-card-header">
+        <div class="timeline-badge">
+          <a href="https://www.lambtoncollege.ca" target="_blank" rel="noopener">
+            <img src="/imgs/logo-lambton-college.png" alt="Lambton College" class="timeline-logo">
+          </a>
+        </div>
+        <div class="timeline-card-info">
+          <span class="timeline-role">Post-Graduate Certificate</span>
+          <span class="timeline-company">Lambton College &middot; Toronto, ON</span>
+          <span class="timeline-date">2024&ndash;25 &middot; Dean's List</span>
+        </div>
+        <span class="timeline-edu-tag">edu</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item item-left">
+    <div class="timeline-card" onclick="this.classList.toggle('expanded')">
+      <div class="timeline-card-header">
+        <div class="timeline-badge">
+          <a href="https://www.genesesolution.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <img src="/imgs/logo-genese.svg" alt="Genese Solution" class="timeline-logo">
+          </a>
+        </div>
+        <div class="timeline-card-info">
+          <span class="timeline-role">Cloud Engineer</span>
+          <span class="timeline-company">Genese Solution (AWS Partner) &middot; Kathmandu, Nepal</span>
+          <span class="timeline-date">Mar 2022 &ndash; Dec 2023</span>
+        </div>
+        <span class="timeline-toggle" aria-hidden="true"><span class="timeline-expand-hint">expand</span></span>
+      </div>
+      <div class="timeline-card-body">
+        <ul class="timeline-desc">
+          <li>Architected serverless microservice platform for Cross River Bank on AWS &mdash; Lambda, DynamoDB, SNS, and API Gateway across multiple independent services.</li>
+          <li>Built infrastructure for a containerised Django platform with Terraform and Terragrunt: ECS backend, S3 and CloudFront frontend, CodeBuild pipelines.</li>
+          <li>Led 45+ AWS Well-Architected Framework Reviews, identifying risks and producing remediation roadmaps for SaaS and regulated financial services clients.</li>
+          <li>Drove AWS DevOps Competency validation across 4 client workloads, remediating IaC, high-availability, and security gaps; Genese achieved the designation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item item-right timeline-item-edu">
+    <div class="timeline-card timeline-card-edu">
+      <div class="timeline-card-header">
+        <div class="timeline-badge">
+          <a href="https://tu.edu.np" target="_blank" rel="noopener">
+            <img src="/imgs/logo-tribhuvan-university.png" alt="Tribhuvan University" class="timeline-logo">
+          </a>
+        </div>
+        <div class="timeline-card-info">
+          <span class="timeline-role">Bachelor of Information Management</span>
+          <span class="timeline-company">Tribhuvan University &middot; Kathmandu, Nepal</span>
+          <span class="timeline-date">2022</span>
+        </div>
+        <span class="timeline-edu-tag">edu</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="about-section-title">Highlights</h2>
+<div class="about-highlights">
+  <a class="highlight-card" href="/certifications/">
+    <span class="highlight-label">Certifications</span>
+    <p class="highlight-title">AWS Golden Jacket</p>
+    <p class="highlight-desc">Holder of all 12 active AWS certifications &middot; Certification Subject Matter Expert</p>
+  </a>
+  <a class="highlight-card" href="/talks/">
+    <span class="highlight-label">Speaking</span>
+    <p class="highlight-title">Two-time Summit Speaker</p>
+    <p class="highlight-desc">AWS Summit Toronto 2025 &amp; 2026</p>
+  </a>
+  <div class="highlight-card">
+    <span class="highlight-label">Community</span>
+    <p class="highlight-title">AWS Community Builder</p>
+    <p class="highlight-desc">2023&ndash;2026 &middot; All Builders Welcome Grant &middot; re:Invent 2025</p>
+  </div>
+  <div class="highlight-card">
+    <span class="highlight-label">Recognition</span>
+    <p class="highlight-title">Certification SME</p>
+    <p class="highlight-desc">Selected by AWS to review and contribute to exam content</p>
+  </div>
+</div>
+
+<h2 class="about-section-title">Skills</h2>
+<div class="about-skills">
+  <div class="skill-group">
+    <span class="skill-label">Cloud &amp; IaC</span>
+    <div class="skill-pills">
+      <span class="skill-pill">AWS</span>
+      <span class="skill-pill">Terraform</span>
+      <span class="skill-pill">Terragrunt</span>
+      <span class="skill-pill">Ansible</span>
+      <span class="skill-pill">CloudFormation</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <span class="skill-label">Containers &amp; CI/CD</span>
+    <div class="skill-pills">
+      <span class="skill-pill">Kubernetes</span>
+      <span class="skill-pill">Docker</span>
+      <span class="skill-pill">Helm</span>
+      <span class="skill-pill">ArgoCD</span>
+      <span class="skill-pill">GitHub Actions</span>
+      <span class="skill-pill">Jenkins</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <span class="skill-label">Observability</span>
+    <div class="skill-pills">
+      <span class="skill-pill">CloudWatch</span>
+      <span class="skill-pill">Prometheus</span>
+      <span class="skill-pill">Grafana</span>
+      <span class="skill-pill">Datadog</span>
+      <span class="skill-pill">Sentry</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <span class="skill-label">Scripting</span>
+    <div class="skill-pills">
+      <span class="skill-pill">Python</span>
+      <span class="skill-pill">Bash</span>
+    </div>
+  </div>
+</div>
+

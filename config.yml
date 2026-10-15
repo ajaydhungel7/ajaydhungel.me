@@ -7,6 +7,9 @@ theme: charlolamode
 
 menu:
     main:
+        - name: Home
+          url: /
+          weight: -1
         - name: About
           url: about/
           weight: 1
@@ -30,7 +33,7 @@ params:
     profile-description: Hi, I am Ajay Dhungel. I am a Cloud & DevOps enthusiast.
     defaultTheme: auto
     label:
-        text: "A"
+        text: "Home"
     #disableThemeToggle: true
     ShowShareButtons: false
     ShowReadingTime: true
@@ -41,11 +44,14 @@ params:
 
     profileMode:
         enabled: true
-        title: Ajay Dhungel 
+        title: Ajay Dhungel
         imageUrl: "/images/profile.jpg"
-        imageTitle: Ajay 
+        imageTitle: Ajay
         imageWidth: 200
         imageHeight: 200
+        buttons:
+            - name: Résumé
+              url: /resume/ajay-dhungel-resume.pdf
 
     mainSections: []
 
