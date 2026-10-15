@@ -42,16 +42,6 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
-            {{- if .Site.Title }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-                {{- if .Site.Params.label.icon }}
-                <img src="{{- .Site.Params.label.icon | absURL -}}" alt="logo" aria-label="logo"
-                    height="{{- .Site.Params.label.iconHeight | default "30" -}}">
-                {{- end -}}
-                {{- $label_text -}}
-            </a>
-            {{- end }}
             <span class="logo-switches">
                 {{- if (not .Site.Params.disableThemeToggle) }}
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -77,7 +67,7 @@
                 {{- end }}
 
                 {{- $lang := .Lang}}
-                {{- $separator := or $label_text (not .Site.Params.disableThemeToggle)}}
+                {{- $separator := (not .Site.Params.disableThemeToggle)}}
                 {{- with $.Site.Home.AllTranslations }}
                 <ul class="lang-switch">
                     {{- if $separator }}<li></li>{{ end }}
